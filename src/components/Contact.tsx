@@ -68,7 +68,7 @@ const Contact: React.FC = () => {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-6 mb-12">
+            <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 mb-8 md:mb-12">
               {contactInfo.map((info, index) => (
                 <motion.a
                   key={info.title}
@@ -76,7 +76,7 @@ const Contact: React.FC = () => {
                   animate={inView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
                   href={info.href}
-                  className="flex flex-col items-center p-6 card hover:scale-105 transition-transform duration-200 text-center"
+                  className="flex flex-col items-center p-6 card hover:scale-105 hover:-translate-y-1 hover:shadow-xl transition-all duration-300 text-center"
                 >
                   <div className="flex-shrink-0 w-16 h-16 bg-gray-200 dark:bg-primary-900 rounded-lg flex items-center justify-center text-primary-600 dark:text-primary-400 mb-4">
                     {info.icon}
@@ -112,13 +112,13 @@ const Contact: React.FC = () => {
                   { 
                     name: 'LinkedIn', 
                     href: personalInfo.linkedin, 
-                    color: 'bg-blue-600 hover:bg-blue-700',
+                    color: 'bg-primary-600 hover:bg-primary-700',
                     icon: <Linkedin className="w-6 h-6" />
                   },
                   { 
                     name: 'Email', 
                     href: `mailto:${personalInfo.email}`, 
-                    color: 'bg-green-600 hover:bg-green-700',
+                    color: 'bg-primary-600 hover:bg-primary-700',
                     icon: <Mail className="w-6 h-6" />
                   },
                 ].map((social) => (

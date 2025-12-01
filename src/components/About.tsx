@@ -39,7 +39,7 @@ const About: React.FC = () => {
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
+        <div className="grid lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center mb-12 md:mb-16 lg:mb-20">
           {/* Left side - Story */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -90,7 +90,7 @@ const About: React.FC = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="grid md:grid-cols-2 lg:grid-cols-4 gap-8"
+          className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8"
         >
           {values.map((value, index) => (
             <motion.div
@@ -98,7 +98,7 @@ const About: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.8 + index * 0.1 }}
-              className="text-center p-6 card hover:scale-105 transition-transform duration-200"
+              className="text-center p-6 card hover:scale-105 hover:-translate-y-1 hover:shadow-xl transition-all duration-300"
             >
               <div className="flex justify-center mb-4">
                 {value.icon}

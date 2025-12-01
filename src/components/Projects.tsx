@@ -102,6 +102,7 @@ const Projects: React.FC = () => {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -20 }}
       transition={{ duration: 0.4, delay: index * 0.05 }}
+      whileHover={{ y: -4 }}
       className="project-card group"
     >
       {/* Project Image */}
@@ -166,7 +167,7 @@ const Projects: React.FC = () => {
       </div>
 
       {/* Project Content */}
-      <div className="px-8 py-8">
+      <div className="px-4 sm:px-6 md:px-8 py-6 md:py-8">
         <div className="mb-4">
           <h3 className="text-xl font-bold text-gray-900 dark:text-white">
             {project.title}
@@ -174,7 +175,7 @@ const Projects: React.FC = () => {
         </div>
         
         {/* Description with expandable functionality */}
-        <div className="mb-4 max-w-[420px]">
+        <div className="mb-4 max-w-full md:max-w-[420px]">
           <p className={`text-gray-900 dark:text-gray-300 ${
             !expandedDescriptions[project.id] ? 'line-clamp-3' : ''
           }`}>
@@ -202,7 +203,7 @@ const Projects: React.FC = () => {
 
         {/* Micro Impact Bullets - Only for professional projects */}
         {!isPersonal && (project as any).microImpacts && (project as any).microImpacts.length > 0 && (
-          <div className="mb-4 max-w-[420px]">
+          <div className="mb-4 max-w-full md:max-w-[420px]">
             <ul className="space-y-1">
               {(project as any).microImpacts.map((impact: string, idx: number) => (
                 <li key={idx} className="text-sm text-gray-900 dark:text-gray-300 flex items-start">
@@ -248,7 +249,7 @@ const Projects: React.FC = () => {
 
         {/* Action Buttons - Only for personal projects */}
         {isPersonal && (project.github || project.live) && (
-          <div className="flex space-x-3">
+          <div className="flex space-x-3 mt-4">
             {project.github && (
               <a
                 href={project.github}
@@ -304,7 +305,7 @@ const Projects: React.FC = () => {
             Full-stack applications and practice projects demonstrating modern web development and scalable application design.
           </p>
           <AnimatePresence mode="wait">
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 mt-12">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-10 mt-8 md:mt-12">
               {personalProjects.map((project, index) => renderProjectCard(project, index, true))}
             </div>
           </AnimatePresence>
@@ -329,9 +330,10 @@ const Projects: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.4, delay: 0.5 }}
+            whileHover={{ y: -4 }}
             className="project-card group max-w-[700px] mx-auto bg-white dark:bg-gray-800/50 shadow-lg border border-gray-200 dark:border-white/10 mt-8 mb-8"
           >
-            <div className="px-8 py-4">
+            <div className="px-4 sm:px-6 md:px-8 py-4 md:py-6">
               <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">
                 Professional Summary
               </h3>
@@ -358,7 +360,7 @@ const Projects: React.FC = () => {
           </motion.div>
 
           <AnimatePresence mode="wait">
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 mt-4">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-10 mt-4">
               {professionalProjects.map((project, index) => renderProjectCard(project, index, false))}
             </div>
           </AnimatePresence>

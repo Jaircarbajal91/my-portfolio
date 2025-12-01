@@ -1,6 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { Heart, Github, Linkedin, Mail } from 'lucide-react'
+import { Heart, Github, Linkedin, Mail, Download } from 'lucide-react'
 import { personalInfo } from '../data/content'
 
 const Footer: React.FC = () => {
@@ -26,7 +26,7 @@ const Footer: React.FC = () => {
             </p>
           </motion.div>
 
-          {/* Social Links */}
+          {/* Social Links & Resume */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -34,7 +34,7 @@ const Footer: React.FC = () => {
             className="space-y-4"
           >
             <h4 className="text-lg font-semibold">Connect</h4>
-            <div className="flex space-x-4">
+            <div className="flex space-x-4 mb-4">
               {[
                 { icon: <Github size={20} />, href: personalInfo.github, label: 'GitHub' },
                 { icon: <Linkedin size={20} />, href: personalInfo.linkedin, label: 'LinkedIn' },
@@ -54,6 +54,17 @@ const Footer: React.FC = () => {
                 </motion.a>
               ))}
             </div>
+            <motion.a
+              href={personalInfo.resume}
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="inline-flex items-center gap-2 px-4 py-2 bg-primary-600 hover:bg-primary-700 text-white rounded-lg transition-colors duration-200 font-medium"
+            >
+              <Download size={18} />
+              Download Resume
+            </motion.a>
           </motion.div>
         </div>
 
