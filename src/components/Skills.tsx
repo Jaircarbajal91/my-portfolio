@@ -5,7 +5,9 @@ import {
   Code2, 
   Database, 
   Layers,
-  Cloud
+  Cloud,
+  Zap,
+  Brain
 } from 'lucide-react'
 import { skillsData } from '../data/content'
 
@@ -21,15 +23,25 @@ const Skills: React.FC = () => {
       icon: <Code2 className="w-6 h-6" />,
       skills: skillsData.backend.skills
     },
+    frontend: {
+      title: skillsData.frontend.title,
+      icon: <Layers className="w-6 h-6" />,
+      skills: skillsData.frontend.skills
+    },
     databases: {
       title: skillsData.databases.title,
       icon: <Database className="w-6 h-6" />,
       skills: skillsData.databases.skills
     },
-    frontend: {
-      title: skillsData.frontend.title,
-      icon: <Layers className="w-6 h-6" />,
-      skills: skillsData.frontend.skills
+    integrations: {
+      title: skillsData.integrations.title,
+      icon: <Zap className="w-6 h-6" />,
+      skills: skillsData.integrations.skills
+    },
+    ai: {
+      title: skillsData.ai.title,
+      icon: <Brain className="w-6 h-6" />,
+      skills: skillsData.ai.skills
     },
     devops: {
       title: skillsData.devops.title,
@@ -58,7 +70,7 @@ const Skills: React.FC = () => {
         </motion.div>
 
         {/* Skills Categories */}
-        <div className="space-y-12">
+        <div className="space-y-8">
           {categories.map((category, categoryIndex) => (
             <motion.div
               key={category}
@@ -67,7 +79,7 @@ const Skills: React.FC = () => {
               transition={{ duration: 0.6, delay: categoryIndex * 0.1 }}
               className="bg-white dark:bg-slate-800 rounded-xl shadow-lg p-6 md:p-8"
             >
-              <div className="flex items-center gap-3 mb-6">
+              <div className="flex items-center gap-3 mb-5">
                 <div className="text-primary-600 dark:text-primary-400">
                   {skillCategories[category].icon}
                 </div>
@@ -75,7 +87,7 @@ const Skills: React.FC = () => {
                   {skillCategories[category].title}
                 </h3>
               </div>
-              <div className="flex flex-wrap gap-3">
+              <div className="flex flex-wrap gap-2.5">
                 {skillCategories[category].skills.map((skill, skillIndex) => (
                   <motion.span
                     key={skill}

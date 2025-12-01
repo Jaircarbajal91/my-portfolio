@@ -43,9 +43,11 @@ const Contact: React.FC = () => {
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
             Get In <span className="gradient-text">Touch</span>
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            I'm actively seeking new career opportunities in software engineering and system integration. 
-            Let's discuss how I can contribute to your team's success.
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-3">
+            Whether you want to collaborate, talk engineering, or explore opportunities, feel free to reach out. I always enjoy meeting people who care about building great systems.
+          </p>
+          <p className="text-base text-gray-500 dark:text-gray-400 max-w-3xl mx-auto italic">
+            I typically respond within 24–48 hours.
           </p>
         </motion.div>
 
@@ -57,17 +59,6 @@ const Contact: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="space-y-8"
           >
-            <div className="text-center mb-12">
-              <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
-                Let's Connect
-              </h3>
-              <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-                I'm passionate about building robust APIs, integrating complex systems, and creating scalable solutions. 
-                If you're looking for a dedicated software engineer who thrives on solving challenging technical problems, 
-                I'd love to hear from you.
-              </p>
-            </div>
-
             <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 mb-8 md:mb-12">
               {contactInfo.map((info, index) => (
                 <motion.a

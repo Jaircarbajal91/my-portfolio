@@ -30,19 +30,11 @@ export const personalInfo = {
 }
 
 export const aboutContent = {
-  story: `I'm a software engineer who loves solving problems and building things that make a difference. 
-  My journey started at App Academy, where I discovered my passion for turning complex challenges into 
-  elegant solutions. I specialize in backend development, API design, and system integration - basically, 
-  I'm the person who makes sure all the pieces of a system work together seamlessly.
+  story: `I'm a full-stack engineer focused on system design, backend architecture, and building reliable integrations across ERP, MES, and enterprise platforms. I enjoy simplifying complexity — turning slow, manual, or inconsistent workflows into scalable, automated systems that support real-world operations.
 
-  When I'm not coding, you'll find me on the golf course working on my swing (I'm still an amateur, 
-  but I love the challenge!), cheering for my favorite sports teams, or playing video games with friends. 
-  I'm always curious about how things work under the hood - whether it's taking apart electronics 
-  to see how they're built or figuring out why a particular algorithm is more efficient.
+I also embrace AI-augmented development. Tools like ChatGPT, Cursor, GitHub Copilot, Claude, and Miro are part of my engineering toolkit — not shortcuts, but accelerators. They help me think through architecture, prototype ideas faster, validate assumptions, and eliminate repetitive work so I can focus on solving the real problems.
 
-  I believe the best code comes from understanding both the technical requirements and the people 
-  who will use it. That's why I love working on projects that have real impact, whether it's streamlining 
-  business processes or creating tools that help people work more efficiently.`,
+My goal is simple: build software that lasts, scales, and genuinely improves the way teams work.`,
   
   stats: [
     { label: 'Years Experience', value: '3+' },
@@ -85,23 +77,7 @@ export const skillsData = {
       'Node.js',
       'Flask',
       'Express.js',
-      'REST APIs',
-      'SuiteScript',
-      'API Integration'
-    ]
-  },
-  databases: {
-    title: 'Databases & Data Engineering',
-    icon: 'Database',
-    skills: [
-      'SQL',
-      'SQL Server',
-      'PostgreSQL',
-      'SQLAlchemy',
-      'Sequelize',
-      'Query Optimization',
-      'Data Migration',
-      'Data Integrity'
+      'REST APIs'
     ]
   },
   frontend: {
@@ -113,20 +89,52 @@ export const skillsData = {
       'TypeScript',
       'JavaScript',
       'Redux',
-      'HTML/CSS',
       'Tailwind CSS'
     ]
   },
+  databases: {
+    title: 'Databases & Data Engineering',
+    icon: 'Database',
+    skills: [
+      'SQL',
+      'SQL Server',
+      'PostgreSQL',
+      'SQLAlchemy',
+      'Sequelize',
+      'Query Optimization'
+    ]
+  },
+  integrations: {
+    title: 'Integrations & Automation',
+    icon: 'Zap',
+    skills: [
+      'NetSuite',
+      'SuiteScript',
+      'Oracle ERP',
+      'API Integration',
+      'System Integration',
+      'Workflow Automation'
+    ]
+  },
+  ai: {
+    title: 'AI-Driven Development Tools',
+    icon: 'Brain',
+    skills: [
+      'ChatGPT',
+      'Cursor',
+      'GitHub Copilot',
+      'Claude',
+      'Miro'
+    ]
+  },
   devops: {
-    title: 'DevOps & Infrastructure',
+    title: 'DevOps / Infrastructure',
     icon: 'Cloud',
     skills: [
       'Git',
       'GitHub',
       'Azure',
       'AWS S3',
-      'NetSuite',
-      'Oracle ERP',
       'CI/CD',
       'Docker'
     ]

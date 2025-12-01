@@ -15,7 +15,7 @@ const Hero: React.FC = () => {
   }
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
+    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden py-20">
       {/* Background gradient - now transparent to show main background */}
       <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-transparent" />
       
@@ -185,15 +185,15 @@ const Hero: React.FC = () => {
           </motion.div>
 
           {/* Content Section */}
-          <div className="flex-1 text-center lg:text-left space-y-6">
+          <div className="flex-1 text-center lg:text-left space-y-8">
             {/* Main Intro Headline */}
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white leading-tight"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 dark:text-white leading-tight tracking-tight"
             >
-              {personalInfo.heroIntro}
+              Building <span className="text-primary-600 dark:text-primary-400">scalable systems</span>, integrations, and modern applications.
             </motion.h1>
 
             {/* Tagline/Subtitle */}
@@ -201,19 +201,9 @@ const Hero: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="text-lg sm:text-xl md:text-2xl text-gray-900 dark:text-gray-300 font-medium"
+              className="text-lg sm:text-xl md:text-2xl text-gray-900 dark:text-gray-200 font-normal leading-relaxed max-w-3xl"
             >
-              {personalInfo.heroTagline}
-            </motion.p>
-
-            {/* Short Bio */}
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.7 }}
-              className="text-base sm:text-lg text-gray-900 dark:text-gray-300 max-w-2xl leading-relaxed"
-            >
-              {personalInfo.description}
+              I'm <span className="text-primary-600 dark:text-primary-400 font-medium">Jair Carbajal</span> — a full-stack engineer specializing in backend architecture, enterprise integrations, automation, and AI-accelerated development.
             </motion.p>
 
             {/* CTA Button */}
@@ -221,13 +211,13 @@ const Hero: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.8 }}
-              className="pt-4"
+              className="pt-2"
             >
               <button 
               onClick={scrollToProjects}
-              className="btn-primary text-lg sm:text-xl px-8 py-4 flex items-center gap-2 hover:scale-105 transition-transform duration-200 mx-auto lg:mx-0 shadow-lg hover:shadow-xl"
+              className="btn-primary text-lg sm:text-xl px-8 py-4 flex items-center gap-2 hover:scale-105 transition-all duration-300 mx-auto lg:mx-0 shadow-lg hover:shadow-xl"
             >
-              See my work
+              View My Work
               <ArrowRight size={24} />
             </button>
             </motion.div>
@@ -245,7 +235,7 @@ const Hero: React.FC = () => {
                 href={personalInfo.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-social"
+                className="btn-social hover:shadow-lg transition-all duration-300"
                 aria-label="GitHub"
               >
                 <Github size={24} className="text-gray-600 dark:text-gray-400" />
@@ -256,7 +246,7 @@ const Hero: React.FC = () => {
                 href={personalInfo.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-social"
+                className="btn-social hover:shadow-lg transition-all duration-300"
                 aria-label="LinkedIn"
               >
                 <Linkedin size={24} className="text-gray-600 dark:text-gray-400" />
@@ -265,7 +255,7 @@ const Hero: React.FC = () => {
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
                 href={`mailto:${personalInfo.email}`}
-                className="btn-social"
+                className="btn-social hover:shadow-lg transition-all duration-300"
                 aria-label="Email"
               >
                 <Mail size={24} className="text-gray-600 dark:text-gray-400" />
@@ -280,7 +270,7 @@ const Hero: React.FC = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 1.4 }}
           onClick={scrollToNext}
-          className="btn-scroll"
+          className="btn-scroll hover:scale-105 hover:shadow-xl transition-all duration-300"
         >
           <motion.div
             animate={{ y: [0, 8, 0] }}
