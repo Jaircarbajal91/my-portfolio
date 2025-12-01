@@ -1,26 +1,17 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { motion } from 'framer-motion'
-import { ChevronDown, Github, Linkedin, Mail, Download } from 'lucide-react'
+import { ChevronDown, Github, Linkedin, Mail, ArrowRight } from 'lucide-react'
 import { personalInfo } from '../data/content'
 
 const Hero: React.FC = () => {
-  const [displayedText, setDisplayedText] = useState('')
-  const [currentIndex, setCurrentIndex] = useState(0)
-  const fullText = personalInfo.tagline
-
-  useEffect(() => {
-    if (currentIndex < fullText.length) {
-      const timeout = setTimeout(() => {
-        setDisplayedText(prev => prev + fullText[currentIndex])
-        setCurrentIndex(prev => prev + 1)
-      }, 100)
-      return () => clearTimeout(timeout)
-    }
-  }, [currentIndex, fullText])
-
   const scrollToNext = () => {
     const aboutSection = document.getElementById('about')
     aboutSection?.scrollIntoView({ behavior: 'smooth' })
+  }
+
+  const scrollToProjects = () => {
+    const projectsSection = document.getElementById('projects')
+    projectsSection?.scrollIntoView({ behavior: 'smooth' })
   }
 
   return (
@@ -163,139 +154,114 @@ const Hero: React.FC = () => {
         />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="space-y-8"
+          className="flex flex-col lg:flex-row items-center lg:items-start gap-8 lg:gap-12"
         >
-          {/* Profile Image */}
+          {/* Profile Image/Avatar */}
           <motion.div
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
+            initial={{ scale: 0, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="mx-auto w-32 h-32 rounded-full bg-gradient-to-r from-primary-400 to-primary-600 p-1"
+            className="flex-shrink-0"
           >
-            <div className="w-full h-full rounded-full bg-gray-200 dark:bg-slate-700 flex items-center justify-center">
-              <span className="text-4xl font-bold text-primary-600 dark:text-primary-400">
-                JC
-              </span>
-            </div>
-          </motion.div>
-
-          {/* Main heading */}
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-5xl md:text-7xl font-bold text-gray-900 dark:text-white"
-          >
-            <span className="gradient-text">{personalInfo.name}</span>
-          </motion.h1>
-
-          {/* Unique Data-Driven Tagline */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="mb-6 relative"
-          >
-            <div className="relative inline-block">
-              {/* Code-like background */}
-              <div className="absolute inset-0 bg-gray-300 dark:bg-gray-800 rounded-lg transform rotate-1 scale-105 opacity-20"></div>
-              <div className="code-snippet">
-                <div className="flex items-center gap-3">
-                  <div className="flex gap-1">
-                    <div className="w-3 h-3 bg-red-400 rounded-full"></div>
-                    <div className="w-3 h-3 bg-yellow-400 rounded-full"></div>
-                    <div className="w-3 h-3 bg-green-400 rounded-full"></div>
-                  </div>
-                  <div className="text-gray-600 dark:text-slate-300 text-sm font-mono">data_engineer.js</div>
-                </div>
-                <div className="mt-3 text-gray-900 dark:text-white font-mono text-lg">
-                  <span className="text-blue-600 dark:text-cyan-400">const</span> <span className="text-orange-600 dark:text-yellow-400">solution</span> = <span className="text-green-600 dark:text-emerald-400">"{displayedText}"</span>
-                  <span className="animate-pulse text-gray-900 dark:text-white">|</span>
-                </div>
+            <div className="w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 rounded-full bg-gradient-to-r from-primary-400 to-primary-600 p-1 shadow-lg">
+              <div className="w-full h-full rounded-full bg-gray-200 dark:bg-slate-700 flex items-center justify-center overflow-hidden">
+                {/* Placeholder avatar - replace with actual photo if available */}
+                <span className="text-5xl md:text-6xl lg:text-7xl font-bold text-primary-600 dark:text-primary-400">
+                  JC
+                </span>
+                {/* Uncomment and add image path when photo is available */}
+                {/* <img 
+                  src="/assets/profile/jair-photo.jpg" 
+                  alt="Jair Carbajal" 
+                  className="w-full h-full object-cover"
+                /> */}
               </div>
             </div>
           </motion.div>
 
-          {/* Subtitle */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-            className="text-xl md:text-2xl text-black dark:text-gray-300 max-w-3xl mx-auto font-medium"
-          >
-            {personalInfo.title}
-          </motion.p>
-
-          {/* Description */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.0 }}
-            className="text-lg text-gray-900 dark:text-gray-400 max-w-2xl mx-auto mt-6"
-          >
-            {personalInfo.description}
-          </motion.p>
-
-          {/* CTA Buttons */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.2 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8"
-          >
-            <a 
-              href={personalInfo.resume}
-              download
-              className="btn-primary text-lg px-8 py-3 flex items-center gap-2 hover:scale-105 transition-transform duration-200"
+          {/* Content Section */}
+          <div className="flex-1 text-center lg:text-left space-y-6">
+            {/* Main Intro Headline */}
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white leading-tight"
             >
-              <Download size={20} />
-              Download Resume
-            </a>
-            <button 
-              onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
-              className="btn-secondary text-lg px-8 py-3 hover:scale-105 transition-transform duration-200"
+              {personalInfo.heroIntro}
+            </motion.h1>
+
+            {/* Tagline/Subtitle */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              className="text-lg sm:text-xl md:text-2xl text-gray-900 dark:text-gray-300 font-medium"
             >
-              View My Work
+              {personalInfo.heroTagline}
+            </motion.p>
+
+            {/* CTA Button */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.8 }}
+              className="pt-4"
+            >
+              <button 
+              onClick={scrollToProjects}
+              className="btn-primary text-lg sm:text-xl px-8 py-4 flex items-center gap-2 hover:scale-105 transition-transform duration-200 mx-auto lg:mx-0 shadow-lg hover:shadow-xl"
+            >
+              See my work
+              <ArrowRight size={24} />
             </button>
-          </motion.div>
+            </motion.div>
 
-          {/* Social Links */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.2 }}
-            className="flex justify-center space-x-6"
-          >
-            <motion.a
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              href={personalInfo.github}
-              className="btn-social"
+            {/* Social Links */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 1.0 }}
+              className="flex justify-center lg:justify-start space-x-4 pt-4"
             >
-              <Github size={24} className="text-gray-600 dark:text-gray-400" />
-            </motion.a>
-            <motion.a
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              href={personalInfo.linkedin}
-              className="btn-social"
-            >
-              <Linkedin size={24} className="text-gray-600 dark:text-gray-400" />
-            </motion.a>
-            <motion.a
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              href={`mailto:${personalInfo.email}`}
-              className="btn-social"
-            >
-              <Mail size={24} className="text-gray-600 dark:text-gray-400" />
-            </motion.a>
-          </motion.div>
+              <motion.a
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                href={personalInfo.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-social"
+                aria-label="GitHub"
+              >
+                <Github size={24} className="text-gray-600 dark:text-gray-400" />
+              </motion.a>
+              <motion.a
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                href={personalInfo.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-social"
+                aria-label="LinkedIn"
+              >
+                <Linkedin size={24} className="text-gray-600 dark:text-gray-400" />
+              </motion.a>
+              <motion.a
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                href={`mailto:${personalInfo.email}`}
+                className="btn-social"
+                aria-label="Email"
+              >
+                <Mail size={24} className="text-gray-600 dark:text-gray-400" />
+              </motion.a>
+            </motion.div>
+          </div>
         </motion.div>
 
         {/* Scroll indicator */}

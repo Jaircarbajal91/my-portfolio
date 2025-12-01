@@ -1,3 +1,16 @@
+// Helper to get asset path with base URL
+const getAssetPath = (path: string): string => {
+  if (path.startsWith('http') || path.startsWith('//')) {
+    return path
+  }
+  // If path already includes base URL, return as is
+  const baseUrl = (import.meta as any).env?.BASE_URL || '/my-portfolio/'
+  if (path.startsWith(baseUrl)) {
+    return path
+  }
+  return `${baseUrl}${path.startsWith('/') ? path.slice(1) : path}`
+}
+
 // Personal information and content for the portfolio
 export const personalInfo = {
   name: "Jair Carbajal",
@@ -5,13 +18,15 @@ export const personalInfo = {
   description: "I build robust APIs, integrate complex systems, and create scalable solutions that power modern applications. When I'm not coding, you'll find me playing or hanging out with my best friend Bruce 🐕‍🦺 (my dog).",
   tagline: "Building systems that scale",
   catchPhrase: "From App Academy to Enterprise",
+  heroIntro: "Hi — I'm Jair Carbajal. I build scalable backend systems, enterprise integrations, and full-stack apps.",
+  heroTagline: "ERP & MES Integration • Data Engineering • Full-Stack Web Development",
   email: "jair.carbajal91@gmail.com",
   phone: "714-267-9312",
   location: "Whittier, CA",
   github: "https://github.com/Jaircarbajal91",
   linkedin: "https://www.linkedin.com/in/jair-carbajal/",
   twitter: "",
-  resume: "/assets/resume/Jair_Carbajal_Resume.pdf",
+  resume: getAssetPath("/assets/resume/Jair_Carbajal_Resume.pdf"),
 }
 
 export const aboutContent = {
@@ -61,52 +76,59 @@ export const aboutContent = {
 }
 
 export const skillsData = {
+  backend: {
+    title: 'Backend & APIs',
+    icon: 'Code2',
+    skills: [
+      'Python',
+      'C#',
+      'Node.js',
+      'Flask',
+      'Express.js',
+      'REST APIs',
+      'SuiteScript',
+      'API Integration'
+    ]
+  },
   databases: {
-    title: 'Database & SQL',
+    title: 'Databases & Data Engineering',
     icon: 'Database',
     skills: [
-      { name: 'SQL', level: 'Expert', color: 'bg-blue-600' },
-      { name: 'SQL Server', level: 'Advanced', color: 'bg-blue-700' },
-      { name: 'Query Optimization', level: 'Expert', color: 'bg-green-600' },
-      { name: 'SQLAlchemy', level: 'Advanced', color: 'bg-gray-600' },
-      { name: 'Sequelize', level: 'Intermediate', color: 'bg-blue-500' },
-      { name: 'Data Migration', level: 'Advanced', color: 'bg-purple-600' },
+      'SQL',
+      'SQL Server',
+      'PostgreSQL',
+      'SQLAlchemy',
+      'Sequelize',
+      'Query Optimization',
+      'Data Migration',
+      'Data Integrity'
     ]
   },
-  programming: {
-    title: 'Programming Languages',
-    icon: 'Code',
-    skills: [
-      { name: 'Python', level: 'Advanced', color: 'bg-yellow-500' },
-      { name: 'C#', level: 'Advanced', color: 'bg-blue-600' },
-      { name: 'JavaScript', level: 'Advanced', color: 'bg-yellow-600' },
-      { name: 'TypeScript', level: 'Intermediate', color: 'bg-blue-500' },
-      { name: 'SQL', level: 'Expert', color: 'bg-blue-700' },
-      { name: 'Bash/Shell', level: 'Intermediate', color: 'bg-gray-600' },
-    ]
-  },
-  frameworks: {
-    title: 'Frameworks & Libraries',
+  frontend: {
+    title: 'Frontend & UI',
     icon: 'Layers',
     skills: [
-      { name: 'Angular', level: 'Advanced', color: 'bg-red-500' },
-      { name: 'React', level: 'Intermediate', color: 'bg-blue-500' },
-      { name: 'Flask', level: 'Advanced', color: 'bg-gray-600' },
-      { name: 'Express', level: 'Intermediate', color: 'bg-gray-700' },
-      { name: 'SQLAlchemy', level: 'Advanced', color: 'bg-gray-600' },
-      { name: 'Sequelize', level: 'Intermediate', color: 'bg-blue-500' },
+      'React',
+      'Angular',
+      'TypeScript',
+      'JavaScript',
+      'Redux',
+      'HTML/CSS',
+      'Tailwind CSS'
     ]
   },
-  tools: {
-    title: 'Tools & Technologies',
-    icon: 'Zap',
+  devops: {
+    title: 'DevOps & Infrastructure',
+    icon: 'Cloud',
     skills: [
-      { name: 'Git', level: 'Expert', color: 'bg-orange-600' },
-      { name: 'GitHub', level: 'Expert', color: 'bg-gray-800' },
-      { name: 'Azure', level: 'Intermediate', color: 'bg-blue-500' },
-      { name: 'AI Integration', level: 'Advanced', color: 'bg-purple-600' },
-      { name: 'NetSuite', level: 'Advanced', color: 'bg-blue-600' },
-      { name: 'Oracle ERP', level: 'Intermediate', color: 'bg-red-600' },
+      'Git',
+      'GitHub',
+      'Azure',
+      'AWS S3',
+      'NetSuite',
+      'Oracle ERP',
+      'CI/CD',
+      'Docker'
     ]
   }
 }
@@ -115,8 +137,8 @@ export const projectsData = [
   {
     id: 1,
     title: 'JairBnB',
-    description: 'Airbnb-style booking platform with advanced date-conflict validation, spot management, user reviews, and AWS S3 image uploads. Includes Google Maps integration and multi-layer backend checks that prevent overlapping or invalid bookings.',
-    image: '/assets/projects/jairbnb.png',
+    description: 'Airbnb-style booking platform with advanced date-conflict validation, spot management, user reviews, and AWS S3 image uploads. Includes Google Maps integration and multi-layer backend checks to prevent overlapping bookings.',
+    image: getAssetPath('/assets/projects/jairbnb.png'),
     tags: ['React', 'Redux', 'Node.js', 'Express.js', 'Sequelize', 'PostgreSQL', 'AWS S3', 'JWT', 'Date Validation'],
     category: 'fullstack',
     github: 'https://github.com/Jaircarbajal91/aa-air-bnb-clone',
@@ -127,8 +149,8 @@ export const projectsData = [
   {
     id: 2,
     title: 'YapYap',
-    description: 'Real-time chat app inspired by Discord, featuring typing indicators, instant message delivery, channel/DM separation, and a mobile-responsive UI. Powered by Socket.IO for fast, seamless bidirectional communication.',
-    image: '/assets/projects/yapyap.png',
+    description: 'Real-time chat app inspired by Discord, featuring typing indicators, instant messaging, channel/DM separation, and a mobile-first UI. Powered by Socket.IO for fast bidirectional communication.',
+    image: getAssetPath('/assets/projects/yapyap.png'),
     tags: ['React', 'Redux', 'Node.js', 'Express.js', 'Socket.IO', 'PostgreSQL', 'AWS S3', 'Real-Time', 'WebSockets'],
     category: 'fullstack',
     github: 'https://github.com/Jaircarbajal91/YapYap',
@@ -139,8 +161,8 @@ export const projectsData = [
   {
     id: 3,
     title: 'Litter',
-    description: 'Social networking app with AWS image uploads, secure IAM rules, UUID filenames, nested comments, likes, follows, and user authentication. Includes a Twitter-style feed with cloud-hosted images and media validation.',
-    image: '/assets/projects/litter.png',
+    description: 'Social networking app with AWS-based image uploads, secure IAM rules, nested comments, likes/follows, and a Twitter-style feed. Includes media validation and cloud-hosted content delivery.',
+    image: getAssetPath('/assets/projects/litter.png'),
     tags: ['React', 'Redux', 'Flask', 'SQLAlchemy', 'PostgreSQL', 'AWS S3', 'boto3', 'Python', 'Image Upload'],
     category: 'fullstack',
     github: 'https://github.com/Jaircarbajal91/litter-twitter',
@@ -151,8 +173,8 @@ export const projectsData = [
   {
     id: 4,
     title: 'swEtsy',
-    description: 'Full-stack e-commerce marketplace with search, multi-criteria filtering, Redux state management, and real-time cart synchronization. Includes product reviews, inventory rules, and secure checkout workflows.',
-    image: '/assets/projects/swetsy.png',
+    description: 'Full-stack e-commerce marketplace with multi-criteria search/filter, Redux state management, real-time cart sync, product reviews, and secure checkout flows.',
+    image: getAssetPath('/assets/projects/swetsy.png'),
     tags: ['React', 'Redux', 'Redux-thunk', 'Flask', 'Python', 'SQLAlchemy', 'PostgreSQL', 'State Management', 'Search'],
     category: 'fullstack',
     github: 'https://github.com/Jaircarbajal91/swEtsy',

@@ -4,6 +4,19 @@ import { useInView } from 'react-intersection-observer'
 import { ExternalLink, Github, Eye, ChevronDown, ChevronUp } from 'lucide-react'
 import { projectsData } from '../data/content'
 
+// Helper to get asset path with base URL
+const getAssetPath = (path: string): string => {
+  if (path.startsWith('http') || path.startsWith('//')) {
+    return path
+  }
+  // If path already includes base URL, return as is
+  const baseUrl = (import.meta as any).env?.BASE_URL || '/my-portfolio/'
+  if (path.startsWith(baseUrl)) {
+    return path
+  }
+  return `${baseUrl}${path.startsWith('/') ? path.slice(1) : path}`
+}
+
 // Logo mapping for technologies
 const techLogos: Record<string, string> = {
   'React': 'https://cdn.simpleicons.org/react/61DAFB',
@@ -13,24 +26,24 @@ const techLogos: Record<string, string> = {
   'Express': 'https://cdn.simpleicons.org/express/000000',
   'Sequelize': 'https://cdn.simpleicons.org/sequelize/52B0E7',
   'PostgreSQL': 'https://cdn.simpleicons.org/postgresql/4169E1',
-  'AWS S3': '/assets/projects/s3.png',
-  'JWT': '/assets/projects/jwt.png',
+  'AWS S3': getAssetPath('/assets/projects/s3.png'),
+  'JWT': getAssetPath('/assets/projects/jwt.png'),
   'Flask': 'https://cdn.simpleicons.org/flask/000000',
   'SQLAlchemy': 'https://cdn.simpleicons.org/sqlalchemy/000000',
   'Socket.IO': 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Socket-io.svg/1200px-Socket-io.svg.png',
   'Python': 'https://cdn.simpleicons.org/python/3776AB',
   'Redux-thunk': 'https://cdn.simpleicons.org/redux/764ABC',
-  'boto3': '/assets/projects/boto3.jpg',
-  'Real-Time': '/assets/projects/websocket.svg',
-  'WebSockets': '/assets/projects/websocket.svg',
-  'Image Upload': '/assets/projects/s3.png',
+  'boto3': getAssetPath('/assets/projects/boto3.jpg'),
+  'Real-Time': getAssetPath('/assets/projects/websocket.svg'),
+  'WebSockets': getAssetPath('/assets/projects/websocket.svg'),
+  'Image Upload': getAssetPath('/assets/projects/s3.png'),
   'State Management': 'https://cdn.simpleicons.org/redux/764ABC',
   'Search': 'https://cdn.simpleicons.org/algolia/003DF5',
   'C#': 'https://api.iconify.design/logos/c-sharp.svg',
   'SQL': 'https://api.iconify.design/simple-icons/microsoftsqlserver.svg?color=%23CC2927',
   'SQL Server': 'https://api.iconify.design/simple-icons/microsoftsqlserver.svg?color=%23CC2927',
   'Azure': 'https://api.iconify.design/logos/microsoft-azure.svg',
-  'NetSuite': '/assets/projects/netsuite.svg',
+  'NetSuite': getAssetPath('/assets/projects/netsuite.svg'),
   'Oracle ERP': 'https://api.iconify.design/logos/oracle.svg',
   'Angular': 'https://cdn.simpleicons.org/angular/DD0031',
   'TypeScript': 'https://cdn.simpleicons.org/typescript/3178C6',
@@ -95,7 +108,7 @@ const Projects: React.FC = () => {
       <div className="relative overflow-hidden">
         {project.image && !imageErrors[project.id] ? (
           // Check if it's a local screenshot or external icon
-          project.image.startsWith('/assets/projects/') ? (
+          project.image.includes('assets/projects/') && !project.image.startsWith('http') ? (
             <img 
               src={project.image} 
               alt={project.title}
@@ -154,7 +167,7 @@ const Projects: React.FC = () => {
 
       {/* Project Content */}
       <div className="px-8 py-8">
-        <div className="mb-3">
+        <div className="mb-4">
           <h3 className="text-xl font-bold text-gray-900 dark:text-white">
             {project.title}
           </h3>
@@ -189,8 +202,8 @@ const Projects: React.FC = () => {
 
         {/* Micro Impact Bullets - Only for professional projects */}
         {!isPersonal && (project as any).microImpacts && (project as any).microImpacts.length > 0 && (
-          <div className="mb-4 max-w-[420px] mt-4">
-            <ul className="space-y-2">
+          <div className="mb-4 max-w-[420px]">
+            <ul className="space-y-1">
               {(project as any).microImpacts.map((impact: string, idx: number) => (
                 <li key={idx} className="text-sm text-gray-900 dark:text-gray-300 flex items-start">
                   <span className="mr-2 text-primary-600 dark:text-primary-400">•</span>
@@ -202,7 +215,7 @@ const Projects: React.FC = () => {
         )}
 
         {/* Tags with Logos */}
-        <div className="flex flex-wrap gap-2 mb-4">
+        <div className="flex flex-wrap gap-2 mt-4">
           {project.tags.map((tag) => {
             const logoUrl = getTechLogo(tag)
             return (
@@ -291,7 +304,7 @@ const Projects: React.FC = () => {
             Full-stack applications and practice projects demonstrating modern web development and scalable application design.
           </p>
           <AnimatePresence mode="wait">
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 mt-12">
               {personalProjects.map((project, index) => renderProjectCard(project, index, true))}
             </div>
           </AnimatePresence>
@@ -316,18 +329,18 @@ const Projects: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.4, delay: 0.5 }}
-            className="project-card group max-w-[700px] mx-auto shadow-md border border-gray-200 dark:border-white/10 mt-8 mb-8"
+            className="project-card group max-w-[700px] mx-auto bg-white dark:bg-gray-800/50 shadow-lg border border-gray-200 dark:border-white/10 mt-8 mb-8"
           >
             <div className="px-8 py-4">
               <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">
                 Professional Summary
               </h3>
-              <div className="mb-4 max-w-[420px]">
+              <div className="mb-4">
                 <p className="text-gray-900 dark:text-gray-300 leading-normal">
                   I build stable, scalable systems across ERP, MES, and manufacturing environments. My work focuses on system integration, workflow automation, data reliability, and operational tooling that supports real production teams. I specialize in bridging complex enterprise platforms—NetSuite, Oracle ERP, PLM, and MES—into unified, automated processes that reduce manual effort and increase operational accuracy.
                 </p>
               </div>
-              <ul className="space-y-1 max-w-[420px]">
+              <ul className="space-y-1">
                 <li className="text-sm text-gray-900 dark:text-gray-300 flex items-start">
                   <span className="mr-2 text-primary-600 dark:text-primary-400">•</span>
                   <span>3+ years building enterprise integrations and automation</span>
@@ -345,7 +358,7 @@ const Projects: React.FC = () => {
           </motion.div>
 
           <AnimatePresence mode="wait">
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 mt-4">
               {professionalProjects.map((project, index) => renderProjectCard(project, index, false))}
             </div>
           </AnimatePresence>
