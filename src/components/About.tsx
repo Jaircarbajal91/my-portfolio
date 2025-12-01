@@ -160,7 +160,7 @@ const About: React.FC = () => {
                 {value.icon}
               </div>
               <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
-                {value.title.split(' ').map((word, idx, arr) => 
+                {value.title.split(' ').map((word, idx) => 
                   idx === 0 ? (
                     <span key={idx} className="text-primary-600 dark:text-primary-400">{word}</span>
                   ) : (
