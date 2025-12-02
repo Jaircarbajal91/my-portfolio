@@ -12,7 +12,7 @@ const AppContent: React.FC = () => {
   return (
     <div className="min-h-screen transition-colors duration-300">
       <Header />
-      <main>
+      <main className="space-y-0">
         <Hero />
         <About />
         <Projects />

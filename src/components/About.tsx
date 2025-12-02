@@ -34,7 +34,7 @@ const About: React.FC = () => {
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
             About <span className="text-primary-600 dark:text-primary-400">Me</span>
           </h2>
-          <p className="text-xl text-gray-900 dark:text-gray-200 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-700 dark:text-gray-200 max-w-3xl mx-auto">
             I'm a developer who loves building things that matter, both in code and in life.
           </p>
         </motion.div>
@@ -50,7 +50,7 @@ const About: React.FC = () => {
             <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
               My <span className="text-primary-600 dark:text-primary-400">Story</span>
             </h3>
-            <div className="space-y-4 text-gray-900 dark:text-gray-300">
+            <div className="space-y-4 text-gray-700 dark:text-gray-300 max-w-2xl">
               {aboutContent.story.split('\n\n').map((paragraph, index) => (
                 <motion.p
                   key={index}
@@ -77,7 +77,7 @@ const About: React.FC = () => {
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={inView ? { opacity: 1, scale: 1 } : {}}
                 transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
-                className="text-center p-6 card hover:scale-105 hover:shadow-xl transition-all duration-300"
+                className="text-center p-6 card hover:scale-105 hover:shadow-xl hover:border-primary-600/30 dark:hover:border-primary-400/30 border border-transparent transition-all duration-300"
               >
                 <div className="text-3xl font-bold text-primary-600 dark:text-primary-400 mb-2">
                   {stat.value}
@@ -101,7 +101,7 @@ const About: React.FC = () => {
             How I <span className="text-primary-600 dark:text-primary-400">Work</span>
           </h3>
           <hr className="border-gray-300 dark:border-slate-600 mb-6" />
-          <ul className="space-y-4 text-gray-900 dark:text-gray-300">
+          <ul className="space-y-4 text-gray-900 dark:text-gray-300 max-w-3xl">
             <motion.li
               initial={{ opacity: 0, x: -10 }}
               animate={inView ? { opacity: 1, x: 0 } : {}}
@@ -109,7 +109,7 @@ const About: React.FC = () => {
               className="flex items-start"
             >
               <span className="text-primary-600 dark:text-primary-400 mr-3 mt-1 font-bold">•</span>
-              <span><strong className="text-gray-900 dark:text-white">Plan clearly</strong> — I diagram workflows and architecture using tools like Miro and Whimsical before writing code.</span>
+              <span><strong className="text-gray-900 dark:text-white">Planning</strong> — I start by understanding requirements, mapping workflows, and identifying potential challenges before writing a single line of code.</span>
             </motion.li>
             <motion.li
               initial={{ opacity: 0, x: -10 }}
@@ -118,7 +118,7 @@ const About: React.FC = () => {
               className="flex items-start"
             >
               <span className="text-primary-600 dark:text-primary-400 mr-3 mt-1 font-bold">•</span>
-              <span><strong className="text-gray-900 dark:text-white">Build efficiently</strong> — Cursor, Copilot, and ChatGPT help eliminate repetitive tasks so I can focus on logic and design.</span>
+              <span><strong className="text-gray-900 dark:text-white">Architecture</strong> — I design scalable, maintainable systems using diagrams and architectural patterns that support long-term growth and reliability.</span>
             </motion.li>
             <motion.li
               initial={{ opacity: 0, x: -10 }}
@@ -127,7 +127,7 @@ const About: React.FC = () => {
               className="flex items-start"
             >
               <span className="text-primary-600 dark:text-primary-400 mr-3 mt-1 font-bold">•</span>
-              <span><strong className="text-gray-900 dark:text-white">Stay reliable</strong> — I prioritize structure, readability, testing, and long-term maintainability.</span>
+              <span><strong className="text-gray-900 dark:text-white">AI-Augmented Development</strong> — I leverage tools like Cursor, GitHub Copilot, and ChatGPT to accelerate repetitive tasks and prototype ideas faster, allowing me to focus on solving complex problems.</span>
             </motion.li>
             <motion.li
               initial={{ opacity: 0, x: -10 }}
@@ -136,7 +136,16 @@ const About: React.FC = () => {
               className="flex items-start"
             >
               <span className="text-primary-600 dark:text-primary-400 mr-3 mt-1 font-bold">•</span>
-              <span><strong className="text-gray-900 dark:text-white">Communicate early</strong> — I turn complex ideas into clear diagrams, prototypes, and explanations for stakeholders.</span>
+              <span><strong className="text-gray-900 dark:text-white">Maintainability</strong> — I write clean, well-structured code with proper documentation, testing, and thoughtful design patterns that make systems easier to understand and evolve.</span>
+            </motion.li>
+            <motion.li
+              initial={{ opacity: 0, x: -10 }}
+              animate={inView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.5, delay: 1.1 }}
+              className="flex items-start"
+            >
+              <span className="text-primary-600 dark:text-primary-400 mr-3 mt-1 font-bold">•</span>
+              <span><strong className="text-gray-900 dark:text-white">Communication</strong> — I translate technical concepts into clear explanations, diagrams, and prototypes that help stakeholders understand and make informed decisions.</span>
             </motion.li>
           </ul>
         </motion.div>
@@ -154,7 +163,7 @@ const About: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.8 + index * 0.1 }}
-              className="text-center p-6 card hover:scale-105 hover:-translate-y-1 hover:shadow-xl transition-all duration-300"
+              className="text-center p-6 card hover:scale-105 hover:-translate-y-1 hover:shadow-xl hover:border-primary-600/30 dark:hover:border-primary-400/30 border border-transparent transition-all duration-300"
             >
               <div className="flex justify-center mb-4">
                 {value.icon}
@@ -168,7 +177,7 @@ const About: React.FC = () => {
                   )
                 )}
               </h4>
-              <p className="text-gray-900 dark:text-gray-300">
+              <p className="text-gray-700 dark:text-gray-300">
                 {value.description}
               </p>
             </motion.div>

@@ -193,7 +193,7 @@ const Hero: React.FC = () => {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 dark:text-white leading-tight tracking-tight"
             >
-              Building <span className="text-primary-600 dark:text-primary-400">scalable systems</span>, integrations, and modern applications.
+              Building scalable systems & integrations
             </motion.h1>
 
             {/* Tagline/Subtitle */}
@@ -201,9 +201,9 @@ const Hero: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="text-lg sm:text-xl md:text-2xl text-gray-900 dark:text-gray-200 font-normal leading-relaxed max-w-3xl"
+              className="text-lg sm:text-xl md:text-2xl text-gray-700 dark:text-gray-200 font-normal leading-relaxed max-w-3xl mx-auto lg:mx-0"
             >
-              I'm <span className="text-primary-600 dark:text-primary-400 font-medium">Jair Carbajal</span> — a full-stack engineer specializing in backend architecture, enterprise integrations, automation, and AI-accelerated development.
+              Backend engineer specializing in enterprise integrations and AI-assisted development.
             </motion.p>
 
             {/* CTA Button */}
@@ -217,7 +217,7 @@ const Hero: React.FC = () => {
               onClick={scrollToProjects}
               className="btn-primary text-lg sm:text-xl px-8 py-4 flex items-center gap-2 hover:scale-105 transition-all duration-300 mx-auto lg:mx-0 shadow-lg hover:shadow-xl"
             >
-              View My Work
+              See My Work
               <ArrowRight size={24} />
             </button>
             </motion.div>

@@ -39,9 +39,9 @@ const Header: React.FC = () => {
           {/* Logo */}
           <motion.div
             whileHover={{ scale: 1.05 }}
-            className="text-2xl font-bold gradient-text"
+            className="text-2xl font-bold text-gray-900 dark:text-white"
           >
-            Jair Carbajal
+            <span className="text-primary-600 dark:text-primary-400">Jair</span> Carbajal
           </motion.div>
 
           {/* Desktop Navigation */}
@@ -50,7 +50,7 @@ const Header: React.FC = () => {
               <a
                 key={item.name}
                 href={item.href}
-                className="text-black dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-200 font-medium"
+                className="text-black dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-200 font-medium hover:scale-105"
               >
                 {item.name}
               </a>

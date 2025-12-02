@@ -17,10 +17,10 @@ const Footer: React.FC = () => {
             transition={{ duration: 0.5 }}
             className="space-y-4"
           >
-            <h3 className="text-2xl font-bold gradient-text">
-              {personalInfo.name}
+            <h3 className="text-2xl font-bold text-white">
+              <span className="text-primary-400">{personalInfo.name.split(' ')[0]}</span> {personalInfo.name.split(' ').slice(1).join(' ')}
             </h3>
-            <p className="text-gray-400">
+            <p className="text-gray-300 max-w-md">
               The developer you'll want on your team - reliable, curious, and always ready to tackle the next challenge. 
               Let's build something amazing together.
             </p>
@@ -47,7 +47,7 @@ const Footer: React.FC = () => {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="social-icon"
+                  className="social-icon hover:scale-110 hover:shadow-lg"
                   aria-label={social.label}
                 >
                   {social.icon}

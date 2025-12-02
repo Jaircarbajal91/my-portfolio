@@ -103,7 +103,7 @@ const Projects: React.FC = () => {
       exit={{ opacity: 0, y: -20 }}
       transition={{ duration: 0.4, delay: index * 0.05 }}
       whileHover={{ y: -4 }}
-      className="project-card group"
+              className="project-card group border border-transparent hover:border-primary-600/20 dark:hover:border-primary-400/20"
     >
       {/* Project Image */}
       <div className="relative overflow-hidden">
@@ -206,7 +206,7 @@ const Projects: React.FC = () => {
           <div className="mb-4 max-w-full md:max-w-[420px]">
             <ul className="space-y-1">
               {(project as any).microImpacts.map((impact: string, idx: number) => (
-                <li key={idx} className="text-sm text-gray-900 dark:text-gray-300 flex items-start">
+                <li key={idx} className="text-sm text-gray-700 dark:text-gray-300 flex items-start">
                   <span className="mr-2 text-primary-600 dark:text-primary-400">•</span>
                   <span>{impact}</span>
                 </li>
@@ -222,7 +222,7 @@ const Projects: React.FC = () => {
             return (
               <span
                 key={tag}
-                className="btn-tag flex items-center gap-1.5 px-2 py-1"
+                className="btn-tag flex items-center gap-1.5 px-2 py-1 hover:scale-105"
                 title={tag}
               >
                 {logoUrl ? (
@@ -253,7 +253,7 @@ const Projects: React.FC = () => {
             {project.github && (
               <a
                 href={project.github}
-                className="flex-1 flex items-center justify-center gap-2 py-2 px-4 btn-code"
+                className="flex-1 flex items-center justify-center gap-2 py-2 px-4 btn-code hover:scale-105"
               >
                 <Github size={16} />
                 Code
@@ -262,7 +262,7 @@ const Projects: React.FC = () => {
             {project.live && (
               <a
                 href={project.live}
-                className="flex-1 flex items-center justify-center gap-2 py-2 px-4 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors duration-200"
+                className="flex-1 flex items-center justify-center gap-2 py-2 px-4 bg-primary-600 text-white rounded-lg hover:bg-primary-700 hover:shadow-md hover:scale-105 transition-all duration-200"
               >
                 <Eye size={16} />
                 Live Demo
@@ -284,9 +284,9 @@ const Projects: React.FC = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
-            My <span className="gradient-text">Projects</span>
+            My <span className="text-primary-600 dark:text-primary-400">Projects</span>
           </h2>
-          <p className="text-xl text-black dark:text-gray-300 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-700 dark:text-gray-300 max-w-3xl mx-auto">
             A showcase of my recent work and the technologies I use to solve real-world problems.
           </p>
         </motion.div>
@@ -301,7 +301,7 @@ const Projects: React.FC = () => {
           <h3 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
             Personal Projects
           </h3>
-          <p className="text-lg text-gray-900 dark:text-gray-300 mb-10">
+          <p className="text-lg text-gray-700 dark:text-gray-300 mb-10 max-w-4xl">
             Full-stack applications and practice projects demonstrating modern web development and scalable application design.
           </p>
           <AnimatePresence mode="wait">
@@ -321,7 +321,7 @@ const Projects: React.FC = () => {
           <h3 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
             Professional Work Experience
           </h3>
-          <p className="text-lg text-gray-900 dark:text-gray-300 mb-8">
+          <p className="text-lg text-gray-700 dark:text-gray-300 mb-8 max-w-4xl">
             Engineering reliable, scalable systems across ERP, MES, and enterprise data platforms. Automations, integrations, and operational tools used daily in production environments.
           </p>
           
@@ -338,20 +338,20 @@ const Projects: React.FC = () => {
                 Professional Summary
               </h3>
               <div className="mb-4">
-                <p className="text-gray-900 dark:text-gray-300 leading-normal">
+                <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
                   I build stable, scalable systems across ERP, MES, and manufacturing environments. My work focuses on system integration, workflow automation, data reliability, and operational tooling that supports real production teams. I specialize in bridging complex enterprise platforms—NetSuite, Oracle ERP, PLM, and MES—into unified, automated processes that reduce manual effort and increase operational accuracy.
                 </p>
               </div>
               <ul className="space-y-1">
-                <li className="text-sm text-gray-900 dark:text-gray-300 flex items-start">
+                <li className="text-sm text-gray-700 dark:text-gray-300 flex items-start">
                   <span className="mr-2 text-primary-600 dark:text-primary-400">•</span>
                   <span>3+ years building enterprise integrations and automation</span>
                 </li>
-                <li className="text-sm text-gray-900 dark:text-gray-300 flex items-start">
+                <li className="text-sm text-gray-700 dark:text-gray-300 flex items-start">
                   <span className="mr-2 text-primary-600 dark:text-primary-400">•</span>
                   <span>Experienced across ERP/MES ecosystems and manufacturing workflows</span>
                 </li>
-                <li className="text-sm text-gray-900 dark:text-gray-300 flex items-start">
+                <li className="text-sm text-gray-700 dark:text-gray-300 flex items-start">
                   <span className="mr-2 text-primary-600 dark:text-primary-400">•</span>
                   <span>Focused on reliability, performance, and operational impact</span>
                 </li>
@@ -376,7 +376,7 @@ const Projects: React.FC = () => {
           <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
             Interested in working together?
           </h3>
-          <p className="text-gray-900 dark:text-gray-300 mb-6">
+          <p className="text-gray-700 dark:text-gray-300 mb-6 max-w-2xl mx-auto">
             I'm always excited to take on new challenges and create amazing digital experiences.
           </p>
           <a

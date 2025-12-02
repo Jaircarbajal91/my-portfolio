@@ -30,11 +30,7 @@ export const personalInfo = {
 }
 
 export const aboutContent = {
-  story: `I'm a full-stack engineer focused on system design, backend architecture, and building reliable integrations across ERP, MES, and enterprise platforms. I enjoy simplifying complexity — turning slow, manual, or inconsistent workflows into scalable, automated systems that support real-world operations.
-
-I also embrace AI-augmented development. Tools like ChatGPT, Cursor, GitHub Copilot, Claude, and Miro are part of my engineering toolkit — not shortcuts, but accelerators. They help me think through architecture, prototype ideas faster, validate assumptions, and eliminate repetitive work so I can focus on solving the real problems.
-
-My goal is simple: build software that lasts, scales, and genuinely improves the way teams work.`,
+  story: `I code because I love turning chaos into clarity — transforming slow, manual processes into elegant systems that actually work. My philosophy is simple: build software that lasts, scales, and genuinely improves how teams operate. I thrive on solving complex integration challenges and designing architectures that handle real-world complexity with reliability and grace.`,
   
   stats: [
     { label: 'Years Experience', value: '3+' },
@@ -111,8 +107,6 @@ export const skillsData = {
       'NetSuite',
       'SuiteScript',
       'Oracle ERP',
-      'API Integration',
-      'System Integration',
       'Workflow Automation'
     ]
   },
@@ -123,8 +117,7 @@ export const skillsData = {
       'ChatGPT',
       'Cursor',
       'GitHub Copilot',
-      'Claude',
-      'Miro'
+      'Claude'
     ]
   },
   devops: {
@@ -145,7 +138,7 @@ export const projectsData = [
   {
     id: 1,
     title: 'JairBnB',
-    description: 'Airbnb-style booking platform with advanced date-conflict validation, spot management, user reviews, and AWS S3 image uploads. Includes Google Maps integration and multi-layer backend checks to prevent overlapping bookings.',
+    description: 'JairBnB is a full-stack Airbnb-style booking platform that enables users to discover, book, and manage vacation rentals. Built with React, Redux, Node.js, Express, and PostgreSQL, featuring AWS S3 image uploads, Google Maps integration, and multi-layer backend validation to prevent date conflicts. This project demonstrates scalable full-stack architecture, secure authentication with JWT, and complex business logic for handling real-time booking constraints.',
     image: getAssetPath('/assets/projects/jairbnb.png'),
     tags: ['React', 'Redux', 'Node.js', 'Express.js', 'Sequelize', 'PostgreSQL', 'AWS S3', 'JWT', 'Date Validation'],
     category: 'fullstack',
@@ -157,7 +150,7 @@ export const projectsData = [
   {
     id: 2,
     title: 'YapYap',
-    description: 'Real-time chat app inspired by Discord, featuring typing indicators, instant messaging, channel/DM separation, and a mobile-first UI. Powered by Socket.IO for fast bidirectional communication.',
+    description: 'YapYap is a real-time chat application inspired by Discord, enabling instant messaging across channels and direct messages with live typing indicators. Built with React, Redux, Node.js, and Socket.IO for bidirectional WebSocket communication, featuring a responsive mobile-first UI and PostgreSQL for persistent message storage. This project showcases real-time system design, WebSocket implementation, and state management for live collaborative features.',
     image: getAssetPath('/assets/projects/yapyap.png'),
     tags: ['React', 'Redux', 'Node.js', 'Express.js', 'Socket.IO', 'PostgreSQL', 'AWS S3', 'Real-Time', 'WebSockets'],
     category: 'fullstack',
@@ -169,7 +162,7 @@ export const projectsData = [
   {
     id: 3,
     title: 'Litter',
-    description: 'Social networking app with AWS-based image uploads, secure IAM rules, nested comments, likes/follows, and a Twitter-style feed. Includes media validation and cloud-hosted content delivery.',
+    description: 'Litter is a Twitter-style social networking platform where users can share posts, images, and engage through likes, follows, and nested comment threads. Built with React, Redux, Flask, and PostgreSQL, featuring AWS S3 integration with secure IAM policies for image uploads and cloud-hosted content delivery. This project demonstrates cloud infrastructure integration, social media feature implementation, and scalable content management with proper security practices.',
     image: getAssetPath('/assets/projects/litter.png'),
     tags: ['React', 'Redux', 'Flask', 'SQLAlchemy', 'PostgreSQL', 'AWS S3', 'boto3', 'Python', 'Image Upload'],
     category: 'fullstack',
@@ -181,7 +174,7 @@ export const projectsData = [
   {
     id: 4,
     title: 'swEtsy',
-    description: 'Full-stack e-commerce marketplace with multi-criteria search/filter, Redux state management, real-time cart sync, product reviews, and secure checkout flows.',
+    description: 'swEtsy is a full-stack e-commerce marketplace where users can browse, search, filter, and purchase products with a seamless shopping experience. Built with React, Redux, Flask, and PostgreSQL, featuring advanced search functionality, real-time cart synchronization, product reviews, and secure checkout workflows. This project showcases complex state management patterns, e-commerce business logic, and user experience optimization for online marketplaces.',
     image: getAssetPath('/assets/projects/swetsy.png'),
     tags: ['React', 'Redux', 'Redux-thunk', 'Flask', 'Python', 'SQLAlchemy', 'PostgreSQL', 'State Management', 'Search'],
     category: 'fullstack',
