@@ -149,53 +149,155 @@
     @apply py-24 md:py-28 lg:py-32 px-4 sm:px-6 lg:px-8;
   }
 
-  /* Contact Card Hover Elevation */
+  /* ==================================================================== */
+  /* CONTACT SECTION - FRAMING + TYPOGRAPHY POLISH */
+  /* ==================================================================== */
+  
+  .contact-header-wrapper {
+    margin-bottom: 1.25rem;
+  }
+
+  .contact-heading {
+    position: relative;
+    margin-bottom: 1.25rem;
+    background: radial-gradient(circle at top center, rgba(255, 255, 255, 0.08) 0%, transparent 75%);
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .dark .contact-heading {
+    background: radial-gradient(circle at top center, rgba(255, 255, 255, 0.08) 0%, transparent 75%);
+  }
+
+  .contact-paragraph {
+    line-height: 1.6;
+    max-width: 40rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .contact-description {
+    margin-bottom: 2rem;
+  }
+
+  .contact-tagline {
+    margin-bottom: 2rem;
+  }
+
+  .contact-response {
+    margin-bottom: 0;
+  }
+
+  /* ==================================================================== */
+  /* CONTACT CARDS - ELEVATION, GLOW, MICRO-ANIMATIONS */
+  /* ==================================================================== */
+
   .contact-card {
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    background-color: rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+  }
+
+  .dark .contact-card {
+    background-color: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.14);
   }
 
   .contact-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.18);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.22);
+    background-color: rgba(0, 0, 0, 0.05);
   }
 
-  /* Icon Scaling Micro-animation */
-  .contact-card svg {
-    transition: transform 0.25s ease;
+  .dark .contact-card:hover {
+    background-color: rgba(255, 255, 255, 0.08);
   }
 
-  .contact-card:hover svg {
-    transform: scale(1.07);
+  .contact-card:active {
+    transform: translateY(-2px) scale(0.96);
+    opacity: 0.9;
   }
 
-  /* Icon Glow Effect */
-  .icon-wrapper {
-    transition: box-shadow 0.25s ease;
+  /* Icon transitions and glow */
+  .contact-card .icon-wrapper {
+    transition: transform 0.25s ease, filter 0.25s ease;
   }
 
   .contact-card:hover .icon-wrapper {
+    transform: scale(1.08);
+    filter: drop-shadow(0 0 6px rgba(0, 180, 255, 0.35));
+  }
+
+  .contact-cards-wrapper {
+    margin-top: 2.25rem;
+  }
+
+  @media (max-width: 640px) {
+    .contact-cards-wrapper {
+      gap: 1.5rem;
+    }
+  }
+
+  /* ==================================================================== */
+  /* SOCIAL ICONS - UNIFIED PREMIUM INTERACTION */
+  /* ==================================================================== */
+
+  .social-icon-link {
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    animation: microfloat 4s ease-in-out infinite;
+  }
+
+  .social-icon-link:hover {
+    transform: translateY(-2px) scale(1.07);
     box-shadow: 0 0 12px rgba(29, 155, 240, 0.35);
+    animation: none;
   }
 
-  /* Floating Contact Button - Mobile Only */
-  .floating-contact-btn {
-    position: fixed;
-    bottom: 1.25rem;
-    right: 1.25rem;
-    background: #1d9bf0;
-    padding: 0.75rem 1.4rem;
-    border-radius: 9999px;
-    color: white;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-    animation: floatFade 0.35s ease forwards;
-    z-index: 9999;
-    text-decoration: none;
-    font-weight: 600;
-    transition: transform 0.15s ease;
+  .social-icon-link:active {
+    transform: translateY(0) scale(0.96);
   }
 
-  .floating-contact-btn:active {
-    transform: scale(0.96);
+  @keyframes microfloat {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-1px);
+    }
+  }
+
+  .connect-icons {
+    gap: 1.25rem;
+  }
+
+  .connect-label {
+    margin-top: 0.75rem;
+  }
+
+  /* ==================================================================== */
+  /* FLOATING CTA BUTTON - MOBILE ONLY */
+  /* ==================================================================== */
+
+  @media (max-width: 640px) {
+    .floating-contact-btn {
+      position: fixed;
+      bottom: 1.25rem;
+      right: 1.25rem;
+      background: #1d9bf0;
+      padding: 0.75rem 1.4rem;
+      border-radius: 9999px;
+      color: white;
+      font-weight: 600;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.22);
+      z-index: 9999;
+      animation: floatFade 0.35s ease forwards, pulseCTA 8s ease infinite;
+      text-decoration: none;
+      transition: transform 0.15s ease;
+    }
+
+    .floating-contact-btn:active {
+      transform: scale(0.96);
+    }
   }
 
   @keyframes floatFade {
@@ -209,29 +311,24 @@
     }
   }
 
-  @media (min-width: 640px) {
-    .floating-contact-btn {
-      display: none;
+  @keyframes pulseCTA {
+    0%, 100% {
+      transform: translateY(0) scale(1);
+    }
+    50% {
+      transform: translateY(-2px) scale(1.03);
     }
   }
 
-  /* Gradient Divider */
-  .section-divider {
-    height: 1px;
-    background: linear-gradient(
-      90deg,
-      transparent,
-      rgba(255, 255, 255, 0.08),
-      transparent
-    );
-    margin: 3rem 0;
-  }
+  /* ==================================================================== */
+  /* FADE-IN + TRANSLATE-Y ENTRANCE ANIMATIONS */
+  /* ==================================================================== */
 
-  /* Scroll Fade-in Animations */
   .fade-in {
     opacity: 0;
-    transform: translateY(12px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
+    transform: translateY(14px);
+    transition: opacity 0.65s ease, transform 0.65s ease;
+    transition-delay: 0ms;
   }
 
   .fade-in.visible {
@@ -239,16 +336,89 @@
     transform: translateY(0);
   }
 
-  /* Contact Section Spacing Refinements */
-  .contact-section p {
-    margin-bottom: 1.75rem;
+  /* ==================================================================== */
+  /* SECTION DIVIDER */
+  /* ==================================================================== */
+
+  .section-divider {
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.10),
+      transparent
+    );
+    margin: 3rem 0;
+    width: 100%;
   }
 
-  .contact-cards-wrapper {
-    margin-top: 2.25rem;
+  /* ==================================================================== */
+  /* FOOTER POLISH - HIERARCHY, READABILITY, PRESENTATION */
+  /* ==================================================================== */
+
+  .footer-enhanced {
+    border-top: 1px solid rgba(255, 255, 255, 0.10);
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
   }
 
-  .connect-icons {
-    gap: 1.25rem;
+  .footer-name {
+    font-weight: 800;
+  }
+
+  .footer-body-text {
+    opacity: 0.85;
+  }
+
+  .footer-heading {
+    letter-spacing: 0.2px;
+    margin-top: 0.75rem;
+  }
+
+  .footer-connect-wrapper {
+    margin-top: 0.75rem;
+  }
+
+  .footer-social-icon {
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .footer-social-icon:hover {
+    transform: translateY(-2px) scale(1.06);
+    box-shadow: 0 0 10px rgba(29, 155, 240, 0.25);
+  }
+
+  /* ==================================================================== */
+  /* MOBILE RESPONSIVENESS POLISH */
+  /* ==================================================================== */
+
+  @media (max-width: 640px) {
+    .contact-paragraph {
+      width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+    }
+
+    .contact-cards-wrapper {
+      justify-items: center;
+    }
+
+    .contact-card {
+      width: 100%;
+      max-width: 100%;
+    }
+
+    .connect-icons {
+      justify-content: center;
+    }
+
+    .footer-enhanced {
+      padding-bottom: 4rem;
+    }
+
+    .floating-contact-btn {
+      margin-bottom: 2rem;
+    }
   }
 }

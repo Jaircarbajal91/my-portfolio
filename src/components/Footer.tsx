@@ -27,7 +27,7 @@ const Footer: React.FC = () => {
   }, [])
 
   return (
-    <footer ref={footerRef} className="bg-gray-800 dark:bg-slate-900 text-white border-t border-white/10 py-10">
+    <footer ref={footerRef} className="fade-in footer-enhanced bg-gray-800 dark:bg-slate-900 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-2 gap-8">
           {/* Brand */}
@@ -35,14 +35,14 @@ const Footer: React.FC = () => {
             <h3 className="footer-name text-2xl font-bold text-white">
               <span className="text-primary-400">{personalInfo.name.split(' ')[0]}</span> {personalInfo.name.split(' ').slice(1).join(' ')}
             </h3>
-            <p className="text-gray-300 max-w-md leading-relaxed">
+            <p className="footer-body-text text-gray-300 max-w-md leading-relaxed">
               A developer focused on building reliable systems, clean architecture, and thoughtful engineering. I care about scalable design, strong communication, and delivering solutions that last. Let's build something great together.
             </p>
           </div>
 
           {/* Social Links & Resume */}
-          <div className="fade-in space-y-4">
-            <h4 className="text-lg font-semibold font-bold">Connect</h4>
+          <div className="fade-in footer-connect-wrapper space-y-4">
+            <h4 className="footer-heading text-lg font-semibold font-bold">Connect</h4>
             <div className="flex space-x-4 mb-4">
               {[
                 { icon: <Github size={20} />, href: personalInfo.github, label: 'GitHub' },
@@ -54,7 +54,7 @@ const Footer: React.FC = () => {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="social-icon hover:scale-110 hover:shadow-lg transition-all duration-200"
+                  className="footer-social-icon social-icon transition-all duration-200"
                   aria-label={social.label}
                 >
                   {social.icon}

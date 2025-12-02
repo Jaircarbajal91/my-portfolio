@@ -49,17 +49,17 @@ const Contact: React.FC = () => {
   return (
     <section id="contact" ref={sectionRef} className="section-padding">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="fade-in text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+        <div className="text-center contact-header-wrapper">
+          <h2 className="fade-in contact-heading text-4xl md:text-5xl font-bold text-gray-900 dark:text-white">
             Get In <span className="text-primary-600 dark:text-primary-400">Touch</span>
           </h2>
-          <p className="fade-in text-xl text-gray-700 dark:text-gray-300 max-w-3xl mx-auto mb-7">
+          <p className="fade-in contact-paragraph contact-description text-xl text-gray-700 dark:text-gray-300 mx-auto">
             Whether you want to collaborate, talk engineering, or explore new opportunities, feel free to reach out. I enjoy meeting people who care about building great systems and solving meaningful problems.
           </p>
-          <p className="fade-in text-lg text-gray-700 dark:text-gray-300 max-w-3xl mx-auto mb-3 font-medium">
+          <p className="fade-in contact-paragraph contact-tagline text-lg text-gray-700 dark:text-gray-300 mx-auto font-medium">
             Let's build something great together — send me a message anytime.
           </p>
-          <p className="fade-in text-base text-gray-600 dark:text-gray-400 max-w-3xl mx-auto italic">
+          <p className="fade-in contact-paragraph contact-response text-base text-gray-600 dark:text-gray-400 mx-auto italic">
             I typically respond within 24–48 hours.
           </p>
         </div>
@@ -67,14 +67,15 @@ const Contact: React.FC = () => {
         <div className="max-w-4xl mx-auto">
           {/* Contact Information */}
           <div className="space-y-8">
-            <div className="fade-in contact-cards-wrapper grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 mb-8 md:mb-12">
-              {contactInfo.map((info) => (
+            <div className="contact-cards-wrapper grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 mb-8 md:mb-12">
+              {contactInfo.map((info, index) => (
                 <a
                   key={info.title}
                   href={info.href}
-                  className="contact-card group flex flex-col items-center p-6 card transition-all duration-200 hover:-translate-y-1 hover:shadow-lg border border-transparent text-center"
+                  className="contact-card group flex flex-col items-center p-6 rounded-xl shadow-lg text-center fade-in"
+                  style={{ transitionDelay: `${index * 100}ms` }}
                 >
-                  <div className="icon-wrapper flex-shrink-0 w-16 h-16 bg-gray-200 dark:bg-primary-900 rounded-lg flex items-center justify-center text-primary-600 dark:text-primary-400 mb-4 transition-transform duration-200 group-hover:scale-105">
+                  <div className="icon-wrapper flex-shrink-0 w-16 h-16 bg-gray-200 dark:bg-primary-900 rounded-lg flex items-center justify-center text-primary-600 dark:text-primary-400 mb-4">
                     {info.icon}
                   </div>
                   <h4 className="font-semibold text-gray-900 dark:text-white mb-2">
@@ -103,10 +104,10 @@ const Contact: React.FC = () => {
 
             {/* Social Links */}
             <div className="fade-in text-center">
-              <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-6">
+              <h4 className="connect-label text-lg font-semibold text-gray-900 dark:text-white mb-6">
                 Connect With Me
               </h4>
-              <div className="connect-icons flex justify-center gap-5">
+              <div className="connect-icons flex justify-center">
                 {[
                   { 
                     name: 'GitHub', 
@@ -132,7 +133,7 @@ const Contact: React.FC = () => {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`w-14 h-14 rounded-lg transition-all duration-200 flex items-center justify-center text-white hover:shadow-lg hover:scale-110 ${social.color}`}
+                    className={`social-icon-link w-14 h-14 rounded-lg flex items-center justify-center text-white ${social.color}`}
                     aria-label={social.name}
                   >
                     {social.icon}
