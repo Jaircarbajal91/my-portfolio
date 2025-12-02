@@ -228,7 +228,7 @@ const Hero: React.FC = () => {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 dark:text-white leading-tight tracking-tight"
             >
-              Engineer <span className="text-primary-600 dark:text-primary-400">who builds</span> reliable systems, integrations & automation
+              Engineer <span className="text-primary-600 dark:text-primary-400">who builds</span> reliable systems, integrations, and automation
             </motion.h1>
 
             {/* Tagline/Subtitle */}
@@ -238,7 +238,7 @@ const Hero: React.FC = () => {
               transition={{ duration: 0.8, delay: 0.6 }}
               className="text-lg sm:text-xl md:text-2xl text-gray-600 dark:text-gray-300 font-normal leading-relaxed max-w-3xl mx-auto lg:mx-0"
             >
-              I design backend architectures, enterprise integrations, and AI-augmented workflows that make complex operations simpler, faster, and more scalable.
+              I build backend architectures and enterprise integrations that turn chaotic, manual operations into predictable, scalable, automated systems. I focus on systems that run in production—stable, maintainable, and built for real-world load.
             </motion.p>
 
             {/* CTA Button */}

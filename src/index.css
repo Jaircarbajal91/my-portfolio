@@ -80,11 +80,15 @@
   }
 
   .project-card {
-    @apply bg-white dark:bg-slate-800 rounded-xl shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 overflow-hidden;
+    @apply bg-white dark:bg-slate-800 shadow-lg overflow-hidden;
+    border-radius: 12px;
+    transition: transform 0.15s ease, box-shadow 0.25s ease;
   }
   
   .project-card:hover {
     @apply border-primary-600/20 dark:border-primary-400/20;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.25);
   }
   
   /* Button variants */
@@ -143,5 +147,108 @@
   
   .section-padding {
     @apply py-24 md:py-28 lg:py-32 px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Contact Card Hover Elevation */
+  .contact-card {
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .contact-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.18);
+  }
+
+  /* Icon Scaling Micro-animation */
+  .contact-card svg {
+    transition: transform 0.25s ease;
+  }
+
+  .contact-card:hover svg {
+    transform: scale(1.07);
+  }
+
+  /* Icon Glow Effect */
+  .icon-wrapper {
+    transition: box-shadow 0.25s ease;
+  }
+
+  .contact-card:hover .icon-wrapper {
+    box-shadow: 0 0 12px rgba(29, 155, 240, 0.35);
+  }
+
+  /* Floating Contact Button - Mobile Only */
+  .floating-contact-btn {
+    position: fixed;
+    bottom: 1.25rem;
+    right: 1.25rem;
+    background: #1d9bf0;
+    padding: 0.75rem 1.4rem;
+    border-radius: 9999px;
+    color: white;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    animation: floatFade 0.35s ease forwards;
+    z-index: 9999;
+    text-decoration: none;
+    font-weight: 600;
+    transition: transform 0.15s ease;
+  }
+
+  .floating-contact-btn:active {
+    transform: scale(0.96);
+  }
+
+  @keyframes floatFade {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (min-width: 640px) {
+    .floating-contact-btn {
+      display: none;
+    }
+  }
+
+  /* Gradient Divider */
+  .section-divider {
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.08),
+      transparent
+    );
+    margin: 3rem 0;
+  }
+
+  /* Scroll Fade-in Animations */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Contact Section Spacing Refinements */
+  .contact-section p {
+    margin-bottom: 1.75rem;
+  }
+
+  .contact-cards-wrapper {
+    margin-top: 2.25rem;
+  }
+
+  .connect-icons {
+    gap: 1.25rem;
   }
 }

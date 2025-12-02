@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-import { ExternalLink, Github, Eye, ChevronDown, ChevronUp } from 'lucide-react'
+import { ChevronDown, ChevronUp } from 'lucide-react'
 import { projectsData } from '../data/content'
 
 // Helper to get asset path with base URL
@@ -9,7 +9,6 @@ const getAssetPath = (path: string): string => {
   if (path.startsWith('http') || path.startsWith('//')) {
     return path
   }
-  // If path already includes base URL, return as is
   const baseUrl = (import.meta as any).env?.BASE_URL || '/my-portfolio/'
   if (path.startsWith(baseUrl)) {
     return path
@@ -70,7 +69,7 @@ const techLogos: Record<string, string> = {
   'Data Integrity': 'https://api.iconify.design/mdi/shield-check.svg',
 }
 
-const Projects: React.FC = () => {
+const Experience: React.FC = () => {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
@@ -79,8 +78,8 @@ const Projects: React.FC = () => {
   const [expandedDescriptions, setExpandedDescriptions] = useState<Record<number, boolean>>({})
   const [imageErrors, setImageErrors] = useState<Record<number, boolean>>({})
 
-  // Filter personal projects
-  const personalProjects = projectsData.filter(project => project.id <= 4)
+  // Filter professional projects
+  const professionalProjects = projectsData.filter(project => project.id > 4)
 
   const toggleDescription = (projectId: number) => {
     setExpandedDescriptions(prev => ({
@@ -94,7 +93,7 @@ const Projects: React.FC = () => {
   }
 
   // Render project card component
-  const renderProjectCard = (project: typeof projectsData[0], index: number, isPersonal: boolean) => (
+  const renderProjectCard = (project: typeof projectsData[0], index: number) => (
     <motion.div
       key={project.id}
       initial={{ opacity: 0, y: 20 }}
@@ -136,39 +135,12 @@ const Projects: React.FC = () => {
             </div>
           </div>
         )}
-        {/* Only show hover overlay for personal projects with links */}
-        {isPersonal && (project.github || project.live) && (
-          <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-200 flex items-center justify-center">
-            <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex space-x-4">
-              {project.github && (
-                <motion.a
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  href={project.github}
-                  className="p-3 bg-white rounded-full hover:bg-gray-100 transition-colors duration-200"
-                >
-                  <Github size={20} className="text-gray-900 dark:text-gray-200" />
-                </motion.a>
-              )}
-              {project.live && (
-                <motion.a
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  href={project.live}
-                  className="p-3 bg-white rounded-full hover:bg-gray-100 transition-colors duration-200"
-                >
-                  <ExternalLink size={20} className="text-gray-900 dark:text-gray-200" />
-                </motion.a>
-              )}
-            </div>
-          </div>
-        )}
       </div>
 
       {/* Project Content */}
-      <div className="px-4 sm:px-6 md:px-8 py-6 md:py-8">
+      <div className="px-5 sm:px-7 md:px-9 py-7 md:py-9">
         <div className="mb-4">
-          <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
+          <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
             {project.title}
           </h3>
         </div>
@@ -219,12 +191,12 @@ const Projects: React.FC = () => {
           )}
         </div>
 
-        {/* Micro Impact Bullets - Only for professional projects */}
-        {!isPersonal && (project as any).microImpacts && (project as any).microImpacts.length > 0 && (
-          <div className="mb-4 max-w-full md:max-w-[420px]">
+        {/* Micro Impact Bullets */}
+        {(project as any).microImpacts && (project as any).microImpacts.length > 0 && (
+          <div className="my-3 max-w-full md:max-w-[420px]">
             <ul className="space-y-1">
               {(project as any).microImpacts.map((impact: string, idx: number) => (
-                <li key={idx} className="text-sm text-gray-700 dark:text-gray-300 flex items-start">
+                <li key={idx} className="text-sm text-gray-700 dark:text-gray-300 flex items-start" style={{ lineHeight: '1.55' }}>
                   <span className="mr-2 text-primary-600 dark:text-primary-400">•</span>
                   <span>{impact}</span>
                 </li>
@@ -264,36 +236,12 @@ const Projects: React.FC = () => {
             )
           })}
         </div>
-
-        {/* Action Buttons - Only for personal projects */}
-        {isPersonal && (project.github || project.live) && (
-          <div className="flex space-x-3 mt-4">
-            {project.github && (
-              <a
-                href={project.github}
-                className="flex-1 flex items-center justify-center gap-2 py-2 px-4 btn-code hover:scale-105"
-              >
-                <Github size={16} />
-                Code
-              </a>
-            )}
-            {project.live && (
-              <a
-                href={project.live}
-                className="flex-1 flex items-center justify-center gap-2 py-2 px-4 bg-primary-600 text-white rounded-lg hover:bg-primary-700 hover:shadow-md hover:scale-105 transition-all duration-200"
-              >
-                <Eye size={16} />
-                Live Demo
-              </a>
-            )}
-          </div>
-        )}
       </div>
     </motion.div>
   )
 
   return (
-    <section id="projects" ref={ref} className="section-padding">
+    <section id="experience" ref={ref} className="section-padding">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -302,49 +250,63 @@ const Projects: React.FC = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
-            <span className="text-primary-600 dark:text-primary-400">Projects</span>
+            Professional <span className="text-primary-600 dark:text-primary-400">Experience</span>
           </h2>
           <p className="text-xl text-gray-700 dark:text-gray-300 max-w-3xl mx-auto">
-            A collection of full-stack applications and practice projects demonstrating modern web development, scalable application design, and clean architecture.
+            Engineering reliable, scalable systems across ERP, MES, and enterprise platforms — with a focus on integrations, automation, and operational impact. I design solutions that streamline operations, improve data reliability, and support production teams in real-world environments.
           </p>
         </motion.div>
 
-        {/* Personal Projects */}
+        {/* Professional Summary Card */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          transition={{ duration: 0.4, delay: 0.2 }}
+          whileHover={{ y: -4 }}
+          className="project-card group max-w-[700px] mx-auto bg-white dark:bg-gray-800/50 shadow-lg border border-gray-200 dark:border-white/10 mb-12"
+        >
+          <div className="px-5 sm:px-7 md:px-9 py-5 md:py-7">
+            <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
+              Professional Summary
+            </h3>
+            <div className="mb-4">
+              <p className="text-gray-700 dark:text-gray-300" style={{ lineHeight: '1.55' }}>
+                I build stable, scalable systems for ERP, MES, and manufacturing environments. My work centers on system integration, workflow automation, data reliability, and operational tooling used daily by production teams. I specialize in connecting complex enterprise platforms—such as NetSuite, Oracle ERP, PLM, and MES—into unified workflows that reduce manual effort and improve accuracy.
+              </p>
+            </div>
+            <ul className="space-y-1 my-3">
+              <li className="text-sm text-gray-700 dark:text-gray-300 flex items-start" style={{ lineHeight: '1.55' }}>
+                <span className="mr-2 text-primary-600 dark:text-primary-400">•</span>
+                <span>3+ years of experience building enterprise integrations and automation</span>
+              </li>
+              <li className="text-sm text-gray-700 dark:text-gray-300 flex items-start" style={{ lineHeight: '1.55' }}>
+                <span className="mr-2 text-primary-600 dark:text-primary-400">•</span>
+                <span>Deep experience across ERP/MES ecosystems and manufacturing workflows</span>
+              </li>
+              <li className="text-sm text-gray-700 dark:text-gray-300 flex items-start" style={{ lineHeight: '1.55' }}>
+                <span className="mr-2 text-primary-600 dark:text-primary-400">•</span>
+                <span>Focused on reliability, performance, and operational clarity</span>
+              </li>
+            </ul>
+          </div>
+        </motion.div>
+
+        {/* Professional Projects */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.4 }}
         >
           <AnimatePresence mode="wait">
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-8 lg:gap-10">
-              {personalProjects.map((project, index) => renderProjectCard(project, index, true))}
+              {professionalProjects.map((project, index) => renderProjectCard(project, index))}
             </div>
           </AnimatePresence>
-        </motion.div>
-
-        {/* Call to Action */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="text-center mt-[5.5rem]"
-        >
-          <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-            Let's Build Something Great Together
-          </h3>
-          <p className="text-gray-700 dark:text-gray-300 mb-6 max-w-2xl mx-auto">
-            I'm always open to collaborating, tackling engineering challenges, or exploring new opportunities. If you have a project in mind—or just want to connect—feel free to reach out.
-          </p>
-          <a
-            href="#contact"
-            className="btn-primary text-lg px-8 py-3"
-          >
-            Get In Touch
-          </a>
         </motion.div>
       </div>
     </section>
   )
 }
 
-export default Projects
+export default Experience
+

@@ -22,6 +22,7 @@ const Header: React.FC = () => {
     { name: 'About', href: '#about' },
     { name: 'Skills', href: '#skills' },
     { name: 'Projects', href: '#projects' },
+    { name: 'Experience', href: '#experience' },
     { name: 'Contact', href: '#contact' },
   ]
 
@@ -57,6 +58,7 @@ const Header: React.FC = () => {
             ))}
             <motion.a
               href={personalInfo.resume}
+              download="Jair_Carbajal_Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}
@@ -78,6 +80,7 @@ const Header: React.FC = () => {
           <div className="md:hidden flex items-center space-x-2">
             <motion.a
               href={personalInfo.resume}
+              download="Jair_Carbajal_Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               whileTap={{ scale: 0.95 }}
@@ -122,6 +125,7 @@ const Header: React.FC = () => {
               ))}
               <a
                 href={personalInfo.resume}
+                download="Jair_Carbajal_Resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setIsMenuOpen(false)}

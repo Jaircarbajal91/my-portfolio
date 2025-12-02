@@ -26,28 +26,29 @@ export const personalInfo = {
   github: "https://github.com/Jaircarbajal91",
   linkedin: "https://www.linkedin.com/in/jair-carbajal/",
   twitter: "",
-  resume: getAssetPath("/assets/resume/Jair_Carbajal_Resume.pdf"),
+  resume: getAssetPath("/assets/Jair_Carbajal_Resume.pdf"),
 }
 
 export const aboutContent = {
-  story: `I'm a full-stack engineer specializing in backend architecture, enterprise integrations, and data pipelines — particularly in manufacturing, ERP/MES, and automation domains. I build robust, scalable systems that turn complex workflows into clean, maintainable, and efficient platforms.
+  story: `I'm a full-stack engineer focused on backend architecture, enterprise integrations, and data reliability — especially in manufacturing and ERP/MES systems. I build stable, scalable systems that turn messy, manual workflows into clean, maintainable platforms teams can rely on.
 
-I believe in code that lasts. I prefer designing systems end-to-end: from database and APIs to UI and integrations — with strong emphasis on reliability, data integrity, and performance under real-world loads.`,
+I enjoy designing systems end-to-end: data models, APIs, integrations, and the UI flows that connect it all. My priorities are reliability, clarity, data integrity, and performance under real production load — not quick fixes or short-lived hacks.`,
 
   howIWork: [
-    'I start with diagrams and system design before writing code.',
-    'I leverage AI-augmented tools (ChatGPT, Cursor, GitHub Copilot, Miro) as accelerators for architecture planning, documentation, and repetitive tasks — so I can focus on solving real problems.',
-    'I prioritize clean, maintainable code, automated pipelines, and long-term sustainability over quick hacks.'
+    'I start with diagrams, system design, and clear data flows before writing code.',
+    'I use AI-augmented tools to speed up planning, documentation, and repetitive work — which frees me to focus on real engineering problems.',
+    'I prioritize maintainable code, automated pipelines, and long-term sustainability over clever shortcuts.'
   ],
 
-  projects: `I'm drawn to projects that bridge complex enterprise systems, automate workflows, and bring clarity to chaos — legacy data, tangled integrations, or messy business logic.`,
+  projects: `I'm especially drawn to projects that bring order to operational chaos — legacy data, tangled systems, unclear workflows, or slow manual processes. Turning complex environments into predictable, scalable systems is where I do my best work.`,
 
-  outside: `Outside of engineering, I'm usually hiking with my dog, exploring trails, or recharging outdoors — it keeps me grounded and gives me clarity for harder technical problems.`
+  outside: `Outside of engineering, I'm usually hiking with my dog, exploring trails, or unplugging outdoors. It keeps me grounded and gives me the clarity I need for harder technical challenges.`
 }
 
 export const skillsData = {
   backend: {
     title: 'Backend & APIs',
+    description: 'Designing reliable backend architectures, REST APIs, and service layers using:',
     icon: 'Code2',
     skills: [
       'Python',
@@ -60,6 +61,7 @@ export const skillsData = {
   },
   frontend: {
     title: 'Frontend & UI',
+    description: 'Building responsive, maintainable UI systems with modern frameworks and state management patterns:',
     icon: 'Layers',
     skills: [
       'React',
@@ -72,6 +74,7 @@ export const skillsData = {
   },
   databases: {
     title: 'Databases & Data Engineering',
+    description: 'Modeling relational schemas, optimizing queries, and improving data reliability at scale:',
     icon: 'Database',
     skills: [
       'SQL',
@@ -84,6 +87,7 @@ export const skillsData = {
   },
   integrations: {
     title: 'Integrations & Automation',
+    description: 'Connecting enterprise systems and automating operational workflows across ERP/MES ecosystems:',
     icon: 'Zap',
     skills: [
       'NetSuite',
@@ -93,7 +97,8 @@ export const skillsData = {
     ]
   },
   ai: {
-    title: 'AI-Driven Development Tools',
+    title: 'AI-Augmented Development Tools',
+    description: 'Using AI tools to accelerate planning, documentation, and implementation:',
     icon: 'Brain',
     skills: [
       'ChatGPT',
@@ -104,6 +109,7 @@ export const skillsData = {
   },
   devops: {
     title: 'DevOps / Infrastructure',
+    description: 'Managing deployments, version control, CI/CD workflows, and cloud-backed storage:',
     icon: 'Cloud',
     skills: [
       'Git',
@@ -120,7 +126,10 @@ export const projectsData = [
   {
     id: 1,
     title: 'JairBnB',
-    description: 'JairBnB is a full-stack Airbnb-style booking platform that enables users to discover, book, and manage vacation rentals. Built with React, Redux, Node.js, Express, and PostgreSQL, featuring AWS S3 image uploads, Google Maps integration, and multi-layer backend validation to prevent date conflicts. This project demonstrates scalable full-stack architecture, secure authentication with JWT, and complex business logic for handling real-time booking constraints.',
+    description: 'A full-stack booking platform inspired by Airbnb. I built the listing system, reservation flow, authentication, image uploads, and multi-layer validation to prevent booking conflicts. The project focuses on scalable API design, reliable data handling, and clean state management across React, Node.js, and PostgreSQL.',
+    readMore: `This project features a full reservation lifecycle with conflict detection, transactional booking logic, and layered validation on both the client and server. I designed RESTful APIs for listings, bookings, and user management, and implemented secure authentication with JWT. Image uploads use AWS S3 with signed URLs, and the data model ensures consistent availability checks across overlapping dates.
+
+Frontend state is managed with Redux and normalized store patterns to support responsive UI updates and predictable async flows. Overall, the project demonstrates scalable API design, reliable business logic, and end-to-end integration across React, Node.js, Express, and PostgreSQL.`,
     image: getAssetPath('/assets/projects/jairbnb.png'),
     tags: ['React', 'Redux', 'Node.js', 'Express.js', 'Sequelize', 'PostgreSQL', 'AWS S3', 'JWT', 'Date Validation'],
     category: 'fullstack',
@@ -132,7 +141,10 @@ export const projectsData = [
   {
     id: 2,
     title: 'YapYap',
-    description: 'YapYap is a real-time chat application inspired by Discord, enabling instant messaging across channels and direct messages with live typing indicators. Built with React, Redux, Node.js, and Socket.IO for bidirectional WebSocket communication, featuring a responsive mobile-first UI and PostgreSQL for persistent message storage. This project showcases real-time system design, WebSocket implementation, and state management for live collaborative features.',
+    description: 'A real-time chat application inspired by Discord. I implemented channel messaging, typing indicators, and bidirectional WebSocket communication with Socket.IO. The project emphasizes real-time system design, event-driven architecture, and responsive UI patterns built for collaboration.',
+    readMore: `YapYap is built around a real-time communication model using event-driven architecture. I implemented a bidirectional WebSocket layer for message delivery, typing indicators, and presence updates using Socket.IO. The system manages channels, direct messages, and user sessions through optimized database queries and persistent message storage in PostgreSQL.
+
+On the frontend, I designed UI patterns that gracefully handle real-time updates, ephemeral states (like typing), and fast channel switching. This project emphasizes responsive interaction design, scalable WebSocket communication, and the engineering patterns needed for modern collaborative apps.`,
     image: getAssetPath('/assets/projects/yapyap.png'),
     tags: ['React', 'Redux', 'Node.js', 'Express.js', 'Socket.IO', 'PostgreSQL', 'AWS S3', 'Real-Time', 'WebSockets'],
     category: 'fullstack',
@@ -144,7 +156,10 @@ export const projectsData = [
   {
     id: 3,
     title: 'Litter',
-    description: 'Litter is a Twitter-style social networking platform where users can share posts, images, and engage through likes, follows, and nested comment threads. Built with React, Redux, Flask, and PostgreSQL, featuring AWS S3 integration with secure IAM policies for image uploads and cloud-hosted content delivery. This project demonstrates cloud infrastructure integration, social media feature implementation, and scalable content management with proper security practices.',
+    description: 'A Twitter-style social platform where users post images, follow accounts, and interact through threaded conversations. I built secure AWS S3 image uploads, IAM-based access control, real-time feed updates, and scalable database models using Flask and PostgreSQL. This project highlights cloud integration and robust social feature design.',
+    readMore: `Litter integrates user-generated content, image uploads, and social interaction features in a scalable backend structure. I implemented AWS S3 uploads using secure IAM policies and presigned URLs, ensuring controlled and authenticated media submission. The platform handles posts, follows, likes, and nested comment threads, all supported by a relational data model built in PostgreSQL.
+
+The backend uses Flask with modular service layers, enabling clean separation between auth, content, feeds, and notifications. This project demonstrates secure cloud integration, social graph modeling, and best practices for user-generated content platforms.`,
     image: getAssetPath('/assets/projects/litter.png'),
     tags: ['React', 'Redux', 'Flask', 'SQLAlchemy', 'PostgreSQL', 'AWS S3', 'boto3', 'Python', 'Image Upload'],
     category: 'fullstack',
@@ -156,7 +171,10 @@ export const projectsData = [
   {
     id: 4,
     title: 'swEtsy',
-    description: 'swEtsy is a full-stack e-commerce marketplace where users can browse, search, filter, and purchase products with a seamless shopping experience. Built with React, Redux, Flask, and PostgreSQL, featuring advanced search functionality, real-time cart synchronization, product reviews, and secure checkout workflows. This project showcases complex state management patterns, e-commerce business logic, and user experience optimization for online marketplaces.',
+    description: 'A full-stack e-commerce marketplace where users browse, search, and purchase products through a seamless shopping experience. I implemented advanced search filtering, real-time cart syncing, product reviews, and secure checkout logic. The project demonstrates complex state management, scalable API design, and UX patterns for online marketplaces.',
+    readMore: `swEtsy showcases a complex marketplace system with advanced search, filtering, and product discovery. I built a robust backend in Flask with PostgreSQL, handling product catalogs, user reviews, cart management, and authenticated purchases. Real-time cart synchronization ensures the UI reflects accurate quantities and pricing even across multiple sessions.
+
+The frontend uses Redux for predictable state management across product lists, filters, reviews, and checkout flows. The project highlights end-to-end e-commerce logic, optimized querying, and UX patterns that support fast browsing and smooth transactional workflows.`,
     image: getAssetPath('/assets/projects/swetsy.png'),
     tags: ['React', 'Redux', 'Redux-thunk', 'Flask', 'Python', 'SQLAlchemy', 'PostgreSQL', 'State Management', 'Search'],
     category: 'fullstack',
@@ -168,7 +186,7 @@ export const projectsData = [
   {
     id: 5,
     title: 'Enterprise Systems Integration & Automation',
-    description: 'Built enterprise integrations connecting ERP, MES, PLM, and internal services through REST APIs and automated pipelines. Delivered high-volume data sync, record transformations, and validation logic that reduced manual work by 80% and improved operational accuracy. Created scalable workflows and reusable internal APIs used daily across multiple teams.',
+    description: 'I design and implement enterprise integrations connecting ERP, MES, PLM, and internal systems through REST APIs and automated workflows. My work reduces manual effort, eliminates data inconsistencies, and supports real-time operational visibility.',
     image: 'https://api.iconify.design/mdi/source-branch-sync.svg?width=600&height=400',
     tags: ['C#', 'NetSuite', 'SuiteScript', 'REST APIs', 'Python', 'Oracle ERP', 'System Integration', 'Automation'],
     category: 'backend',
@@ -177,15 +195,15 @@ export const projectsData = [
     date: '2023-2024',
     featured: false,
     microImpacts: [
-      'Automated cross-system workflows reducing manual effort by ~80%',
+      'Automated cross-system workflows, reducing manual effort by 80%+',
       'Designed scalable internal APIs used across ERP, MES, and PLM integrations',
-      'Enabled high-volume, reliable data synchronization across teams'
+      'Implemented high-volume, reliable data synchronization processes for production teams'
     ]
   },
   {
     id: 6,
     title: 'Database Engineering & Performance Optimization',
-    description: 'Engineered large-scale SQL optimizations improving query performance by up to 75%. Refactored complex database logic, implemented indexing strategies, and delivered monitoring tools for long-running queries and integrity issues. Reduced latency across reporting and production workflows.',
+    description: 'I engineered large-scale SQL optimizations that improved query performance by up to 75%, enabling faster reporting, more responsive dashboards, and smoother operational workflows.',
     image: 'https://api.iconify.design/mdi/database-search.svg?width=600&height=400',
     tags: ['SQL', 'SQL Server', 'Performance Tuning', 'Migrations', 'Data Integrity', 'Optimization'],
     category: 'backend',
@@ -194,15 +212,15 @@ export const projectsData = [
     date: '2023-2024',
     featured: false,
     microImpacts: [
-      'Improved SQL query performance by up to 75%',
+      'Improved SQL query performance by 75% through indexing, refactoring, and schema tuning',
       'Reduced multi-join query runtimes from minutes to seconds',
-      'Strengthened data quality with automated validation and monitoring tools'
+      'Strengthened data quality through automated validation and monitoring tools'
     ]
   },
   {
     id: 7,
     title: 'MES Engineering & Custom Operational Tools',
-    description: 'Developed custom MES features including Data Collection rollups, Inventory workflows, NC tools, and Shipping Order automation. Built fast, user-friendly screens and backend logic that improved shop-floor efficiency and reduced errors. Integrated MES with ERP and PLM to provide real-time operational data.',
+    description: 'I developed custom MES features and tools used by production, quality, and shipping teams. These tools streamline day-to-day operations and improve traceability, audit readiness, and workflow reliability.',
     image: 'https://api.iconify.design/mdi/factory.svg?width=600&height=400',
     tags: ['JavaScript', 'C#', 'Angular', 'MES', 'API Integration', 'Manufacturing'],
     category: 'fullstack',
@@ -211,9 +229,9 @@ export const projectsData = [
     date: '2023-2024',
     featured: false,
     microImpacts: [
-      'Built configurable MES screens used by production, quality, and shipping teams',
-      'Automated NC and disposition workflows with audit tracking',
-      'Delivered real-time rollups powering operational dashboards'
+      'Built configurable MES screens for Data Collection rollups, Inventory workflows, NC workflows, and Shipping Order tools',
+      'Automated NC and disposition workflows with audit tracking and rule-based validation',
+      'Delivered real-time rollups powering operational dashboards and manufacturing insights'
     ]
   }
 ]
