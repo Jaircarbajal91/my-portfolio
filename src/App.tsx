@@ -10,13 +10,6 @@ import Footer from './components/Footer'
 import { ThemeProvider } from './contexts/ThemeContext'
 
 const AppContent: React.FC = () => {
-  const scrollToContact = () => {
-    const contactElement = document.getElementById('contact')
-    if (contactElement) {
-      contactElement.scrollIntoView({ behavior: 'smooth' })
-    }
-  }
-
   return (
     <div className="min-h-screen transition-colors duration-300">
       <Header />
