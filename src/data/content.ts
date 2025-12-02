@@ -30,37 +30,19 @@ export const personalInfo = {
 }
 
 export const aboutContent = {
-  story: `I code because I love turning chaos into clarity — transforming slow, manual processes into elegant systems that actually work. My philosophy is simple: build software that lasts, scales, and genuinely improves how teams operate. I thrive on solving complex integration challenges and designing architectures that handle real-world complexity with reliability and grace.`,
-  
-  stats: [
-    { label: 'Years Experience', value: '3+' },
-    { label: 'Projects Completed', value: '15+' },
-    { label: 'Cups of Coffee', value: '1000+' },
-    { label: 'Golf Rounds', value: '50+' },
+  story: `I'm a full-stack engineer specializing in backend architecture, enterprise integrations, and data pipelines — particularly in manufacturing, ERP/MES, and automation domains. I build robust, scalable systems that turn complex workflows into clean, maintainable, and efficient platforms.
+
+I believe in code that lasts. I prefer designing systems end-to-end: from database and APIs to UI and integrations — with strong emphasis on reliability, data integrity, and performance under real-world loads.`,
+
+  howIWork: [
+    'I start with diagrams and system design before writing code.',
+    'I leverage AI-augmented tools (ChatGPT, Cursor, GitHub Copilot, Miro) as accelerators for architecture planning, documentation, and repetitive tasks — so I can focus on solving real problems.',
+    'I prioritize clean, maintainable code, automated pipelines, and long-term sustainability over quick hacks.'
   ],
 
-  values: [
-    {
-      icon: 'Code',
-      title: 'Clean Code',
-      description: 'I write code that not only works but is readable, maintainable, and makes sense to anyone who needs to work with it. (Future me thanks past me for this.)'
-    },
-    {
-      icon: 'Database',
-      title: 'Problem Solving',
-      description: 'I love tackling complex challenges and finding creative solutions that balance technical requirements with user needs. Sometimes the best solution is the simplest one.'
-    },
-    {
-      icon: 'Zap',
-      title: 'Continuous Learning',
-      description: 'Technology evolves fast, and I\'m always exploring new tools, frameworks, and approaches to stay current.'
-    },
-    {
-      icon: 'Shield',
-      title: 'Team Collaboration',
-      description: 'Some of my best work comes from collaborating with others, sharing ideas, and learning from different perspectives.'
-    },
-  ]
+  projects: `I'm drawn to projects that bridge complex enterprise systems, automate workflows, and bring clarity to chaos — legacy data, tangled integrations, or messy business logic.`,
+
+  outside: `Outside of engineering, I'm usually hiking with my dog, exploring trails, or recharging outdoors — it keeps me grounded and gives me clarity for harder technical problems.`
 }
 
 export const skillsData = {

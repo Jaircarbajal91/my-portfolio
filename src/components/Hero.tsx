@@ -159,33 +159,55 @@ const Hero: React.FC = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="flex flex-col lg:flex-row items-center lg:items-start gap-8 lg:gap-12"
+          className="flex flex-col lg:flex-row items-center lg:items-center gap-6 lg:gap-8"
         >
           {/* Profile Image/Avatar */}
           <motion.div
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="flex-shrink-0"
+            className="flex-shrink-0 order-1 lg:order-1"
           >
-            <div className="w-32 h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 rounded-full bg-gradient-to-r from-primary-400 to-primary-600 p-1 shadow-lg">
-              <div className="w-full h-full rounded-full bg-gray-200 dark:bg-slate-700 flex items-center justify-center overflow-hidden">
-                {/* Placeholder avatar - replace with actual photo if available */}
-                <span className="text-5xl md:text-6xl lg:text-7xl font-bold text-primary-600 dark:text-primary-400">
-                  JC
-                </span>
-                {/* Uncomment and add image path when photo is available */}
-                {/* <img 
-                  src="/assets/profile/jair-photo.jpg" 
+            <div className="relative w-64 h-80 sm:w-72 sm:h-96 md:w-80 md:h-[28rem] lg:w-96 lg:h-[32rem] rounded-2xl bg-gradient-to-r from-primary-400 via-primary-500 to-primary-600 p-1.5 shadow-2xl">
+              {/* Systems diagram pattern behind avatar */}
+              <div className="absolute inset-0 rounded-2xl opacity-10 dark:opacity-15 pointer-events-none">
+                <svg className="w-full h-full" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  {/* Node pattern */}
+                  <circle cx="40" cy="40" r="3" fill="currentColor" className="text-primary-400" />
+                  <circle cx="160" cy="40" r="3" fill="currentColor" className="text-primary-400" />
+                  <circle cx="40" cy="160" r="3" fill="currentColor" className="text-primary-400" />
+                  <circle cx="160" cy="160" r="3" fill="currentColor" className="text-primary-400" />
+                  <circle cx="100" cy="100" r="4" fill="currentColor" className="text-primary-500" />
+                  {/* Connection lines */}
+                  <line x1="40" y1="40" x2="100" y2="100" stroke="currentColor" strokeWidth="1" className="text-primary-400" />
+                  <line x1="160" y1="40" x2="100" y2="100" stroke="currentColor" strokeWidth="1" className="text-primary-400" />
+                  <line x1="40" y1="160" x2="100" y2="100" stroke="currentColor" strokeWidth="1" className="text-primary-400" />
+                  <line x1="160" y1="160" x2="100" y2="100" stroke="currentColor" strokeWidth="1" className="text-primary-400" />
+                </svg>
+              </div>
+              <div className="w-full h-full rounded-2xl overflow-hidden bg-gray-200 dark:bg-slate-700 relative z-10">
+                <img 
+                  src="/assets/projects/me.jpg" 
                   alt="Jair Carbajal" 
-                  className="w-full h-full object-cover"
-                /> */}
+                  className="w-full h-full object-cover object-right-top"
+                  loading="eager"
+                />
               </div>
             </div>
           </motion.div>
 
           {/* Content Section */}
-          <div className="flex-1 text-center lg:text-left space-y-8">
+          <div className="flex-1 text-center lg:text-left space-y-4 order-2 lg:order-2">
+            {/* Micro-tagline */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="text-sm sm:text-base text-gray-500 dark:text-gray-400 tracking-wide mb-2"
+            >
+              Full-Stack Engineer • Integrations • AI-Augmented Development
+            </motion.p>
+
             {/* Main Intro Headline */}
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
@@ -193,7 +215,7 @@ const Hero: React.FC = () => {
               transition={{ duration: 0.8, delay: 0.4 }}
               className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 dark:text-white leading-tight tracking-tight"
             >
-              Building scalable systems & integrations
+              Engineer <span className="text-primary-600 dark:text-primary-400">who builds</span> reliable systems, integrations & automation
             </motion.h1>
 
             {/* Tagline/Subtitle */}
@@ -201,9 +223,9 @@ const Hero: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="text-lg sm:text-xl md:text-2xl text-gray-700 dark:text-gray-200 font-normal leading-relaxed max-w-3xl mx-auto lg:mx-0"
+              className="text-lg sm:text-xl md:text-2xl text-gray-600 dark:text-gray-300 font-normal leading-relaxed max-w-3xl mx-auto lg:mx-0"
             >
-              Backend engineer specializing in enterprise integrations and AI-assisted development.
+              I design backend architectures, enterprise integrations, and AI-augmented workflows that make complex operations simpler, faster, and more scalable.
             </motion.p>
 
             {/* CTA Button */}
@@ -211,7 +233,7 @@ const Hero: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.8 }}
-              className="pt-2"
+              className="-mt-6"
             >
               <button 
               onClick={scrollToProjects}
@@ -227,7 +249,7 @@ const Hero: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1.0 }}
-              className="flex justify-center lg:justify-start space-x-4 pt-4"
+              className="flex justify-center lg:justify-start space-x-3"
             >
               <motion.a
                 whileHover={{ scale: 1.1 }}
