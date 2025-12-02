@@ -3,6 +3,19 @@ import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import { aboutContent } from '../data/content'
 
+// Helper to get asset path with base URL
+const getAssetPath = (path: string): string => {
+  if (path.startsWith('http') || path.startsWith('//')) {
+    return path
+  }
+  // If path already includes base URL, return as is
+  const baseUrl = (import.meta as any).env?.BASE_URL || '/my-portfolio/'
+  if (path.startsWith(baseUrl)) {
+    return path
+  }
+  return `${baseUrl}${path.startsWith('/') ? path.slice(1) : path}`
+}
+
 const About: React.FC = () => {
   const [ref, inView] = useInView({
     triggerOnce: true,
@@ -56,7 +69,7 @@ const About: React.FC = () => {
               <div className="relative rounded-xl overflow-hidden bg-gradient-to-br from-primary-400/30 via-primary-500/30 to-primary-600/30 dark:from-primary-400/20 dark:via-primary-500/20 dark:to-primary-600/20 p-1.5 shadow-xl dark:shadow-2xl dark:shadow-primary-900/20">
                 <div className="rounded-lg overflow-hidden bg-white dark:bg-slate-800">
                   <img
-                    src="/assets/projects/my and bruce.jpg"
+                    src={getAssetPath("/assets/projects/my and bruce.jpg")}
                     alt="Jair and Bruce hiking"
                     className="w-full h-auto object-cover"
                   />

@@ -3,6 +3,19 @@ import { motion } from 'framer-motion'
 import { ChevronDown, Github, Linkedin, Mail, ArrowRight } from 'lucide-react'
 import { personalInfo } from '../data/content'
 
+// Helper to get asset path with base URL
+const getAssetPath = (path: string): string => {
+  if (path.startsWith('http') || path.startsWith('//')) {
+    return path
+  }
+  // If path already includes base URL, return as is
+  const baseUrl = (import.meta as any).env?.BASE_URL || '/my-portfolio/'
+  if (path.startsWith(baseUrl)) {
+    return path
+  }
+  return `${baseUrl}${path.startsWith('/') ? path.slice(1) : path}`
+}
+
 const Hero: React.FC = () => {
   const scrollToNext = () => {
     const aboutSection = document.getElementById('about')
@@ -187,7 +200,7 @@ const Hero: React.FC = () => {
               </div>
               <div className="w-full h-full rounded-2xl overflow-hidden bg-gray-200 dark:bg-slate-700 relative z-10">
                 <img 
-                  src="/assets/projects/me.jpg" 
+                  src={getAssetPath("/assets/projects/me.jpg")} 
                   alt="Jair Carbajal" 
                   className="w-full h-full object-cover object-right-top"
                   loading="eager"
