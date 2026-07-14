@@ -134,7 +134,7 @@ Frontend state is managed with Redux and normalized store patterns to support re
     tags: ['React', 'Redux', 'Node.js', 'Express.js', 'Sequelize', 'PostgreSQL', 'AWS S3', 'JWT', 'Date Validation'],
     category: 'fullstack',
     github: 'https://github.com/Jaircarbajal91/aa-air-bnb-clone',
-    live: 'https://jair-bnb-cd7df7b44d78.herokuapp.com/',
+    live: 'https://jairbnb.146.190.138.90.sslip.io/',
     date: '2024',
     featured: true
   },
@@ -149,7 +149,7 @@ On the frontend, I designed UI patterns that gracefully handle real-time updates
     tags: ['React', 'Redux', 'Node.js', 'Express.js', 'Socket.IO', 'PostgreSQL', 'AWS S3', 'Real-Time', 'WebSockets'],
     category: 'fullstack',
     github: 'https://github.com/Jaircarbajal91/YapYap',
-    live: 'https://yap-yap-d52da3cbcf3d.herokuapp.com/app',
+    live: 'https://yapyap.146.190.138.90.sslip.io/app',
     date: '2024',
     featured: true
   },
@@ -164,7 +164,7 @@ The backend uses Flask with modular service layers, enabling clean separation be
     tags: ['React', 'Redux', 'Flask', 'SQLAlchemy', 'PostgreSQL', 'AWS S3', 'boto3', 'Python', 'Image Upload'],
     category: 'fullstack',
     github: 'https://github.com/Jaircarbajal91/litter-twitter',
-    live: 'https://litter-twitter-55b0f2c66855.herokuapp.com/',
+    live: 'https://litter.146.190.138.90.sslip.io/',
     date: '2024',
     featured: true
   },
@@ -179,7 +179,7 @@ The frontend uses Redux for predictable state management across product lists, f
     tags: ['React', 'Redux', 'Redux-thunk', 'Flask', 'Python', 'SQLAlchemy', 'PostgreSQL', 'State Management', 'Search'],
     category: 'fullstack',
     github: 'https://github.com/Jaircarbajal91/swEtsy',
-    live: 'https://swetsy-app-2-a892cfb2b203.herokuapp.com/',
+    live: 'https://swetsy.146.190.138.90.sslip.io/',
     date: '2024',
     featured: true
   },
